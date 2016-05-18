@@ -1,0 +1,13 @@
+<%@ jet package="translated" class="IdaoImpl_java"%>
+package <java:package />;
+<entity var="many" relation="many" />
+<set value="className" valueScope="session" var="className"/>
+<set value="fullyClassName" valueScope="session" var="fullyClassName"/>
+
+/**
+ * Dao接口
+ */
+<%-- 生成class文件名，同文件名一致（java类名命名规范）  --%>
+public interface <java:class /> extends IBeanDao{
+
+}

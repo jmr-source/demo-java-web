@@ -1,0 +1,47 @@
+<%@ jet package="translated" class="Entity_java"%>
+<%--包名--%>
+package <java:package/>;
+
+<%--导入类型--%>
+<entity var="many" relation="many"/>
+<for var="field" value="many.fields" duplicate="false">
+import <get value="field.fullType"/>;
+</for>
+
+<%--类名--%>
+public class <java:class setScope="session" classNameVar="className" fullyClassNameVar="fullyClassName"/>{
+  <%--生成类的属性--%>
+  <for var="field" value="many.fields">
+    <%--判断字段是否使用--%>
+    private <get value="field.type"/> <get value="field.name"/>;
+  </for>
+
+  <%--空的构造方法--%>
+    public <java:class/>() {
+		super();
+	}
+
+  <%--带参数的构造方法--%>
+    public <java:class/>(<for value="many.fields" var="field" delimiter=", ">
+		                   <get value="field.type"/> <get value="field.name"/>
+	                     </for>) {
+		super();
+	  <for value="many.fields" var="field">
+		this.<get value="field.name"/> = <get value="field.name"/>;
+	  </for>
+	}
+	
+<%--属性get/set方法--%>   
+  <for value="many.fields" var="field">
+    <%--get方法,属性头字母大写--%>
+    public <get value="field.type"/> get<get value="field.name" case="headUpper"/>() {
+		return <get value="field.name"/>;
+	}
+	
+	<%--set方法,属性头字母大写--%>
+	public void set<get value="field.name" case="headUpper"/>(<get value="field.type"/> <get value="field.name"/>){
+		this.<get value="field.name"/> = <get value="field.name"/>;
+	}
+	
+  </for>
+}

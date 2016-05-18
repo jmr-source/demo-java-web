@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.1//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_1.dtd">
+
+<struts-config>
+  <data-sources />
+  
+  <form-beans />
+	
+  <global-exceptions />
+  
+ <!-- Global Forwards -->
+	<global-forwards>
+	
+	</global-forwards>
+	
+	
+	
+<!-- Action Mappings -->
+   <action-mappings>
+   
+       <action path="/index"  type="com.jmr.action.IndexAction"
+                   scope="request" parameter="act" >                
+           <forward name="toIndexSuccess" path="/common/views/login.jsp"/>       
+           <forward name="modifyPassword" path="/common/views/modify.jsp"/>             
+       </action>
+       
+       <action path="/login"  type="com.jmr.action.LoginAction"
+                  scope="request" parameter="act"> 
+           <forward name="toLoginSuccess" path="/common/views/login.jsp"/>   
+           <forward name="loginSuccess" path="/common/views/form.jsp"/>
+           <forward name="loginFailure" path="/login.do?act=toLogin"/>                   
+       </action>
+       
+       <action path="/users" type="com.jmr.action.UsersAction"
+       			scope="request" parameter="act"> 
+       		<forward name="toFindView" path="/views/users/users.jsp"></forward>	
+       		<forward name="toAddView" path="/views/users/usersAdd.jsp"></forward>	
+       		<forward name="toModifyView" path="/views/users/usersModify.jsp"></forward>	
+       		<forward name="toFindAction" path="/views/users.do?act=find"></forward>	
+       </action>
+       
+       <action path="/news"  type="com.jmr.action.NewsAction"
+                  scope="request" parameter="act"> 
+            <forward name="toFind" path="/views/news/news.jsp" />
+	        <forward name="toFindAction" path="/views/news.do?act=find" redirect="true" />
+	   		<forward name="toAdd" path="/views/news/newsAdd.jsp" />
+	   		<forward name="toModify" path="/views/news/newsModify.jsp" />           
+       </action>
+       
+       <!-- insert_start id="bean" -->                      
+        
+       <action path="/student"  type="com.jmr.action.StudentAction"
+                  scope="request" parameter="act"> 
+            <forward name="toFind" path="/views/student/student.jsp" />
+	        <forward name="toFindAction" path="/views/student.do?act=find" redirect="true" />
+	   		<forward name="toAdd" path="/views/student/studentAdd.jsp" />
+	   		<forward name="toModify" path="/views/student/studentModify.jsp" />           
+       </action>            
+       
+       <action path="/book"  type="com.jmr.action.BookAction"
+                  scope="request" parameter="act"> 
+            <forward name="toFind" path="/views/book/book.jsp" />
+	        <forward name="toFindAction" path="/views/book.do?act=find" redirect="true" />
+	   		<forward name="toAdd" path="/views/book/bookAdd.jsp" />
+	   		<forward name="toModify" path="/views/book/bookModify.jsp" />           
+       </action>            
+       <!-- insert_end -->
+       
+   </action-mappings>
+ 
+  <!-- Message Resources -->
+	<message-resources
+		parameter="config.resource.ApplicationResources" />
+	
+</struts-config>

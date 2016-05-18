@@ -1,0 +1,57 @@
+<%@ jet package="translated" class="Iservice_java"%>
+
+package <java:package />;
+<entity var="one" relation="one" />
+
+import ssh.hibernate.page.ListPage;
+import com.jmr.model.<get value="one.name" case="hu" />;
+
+
+/**
+ * 消息service接口
+ *
+ */
+ <%-- 生成class文件名，同文件名一致（java类名命名规范）  --%>
+public interface <java:class /> {
+
+	/**
+	 * 分页查询
+	 * @param pageNo
+	 * @param pageCount
+	 * @param code
+	 * @param status
+	 * @param subjectCE
+	 * @param startDate
+	 * @param endDate
+	 * @return
+	 */
+	public ListPage find(int pageNo, int pageCount, String code, int status, String subjectCE, String startDate, String endDate);
+	
+	/**
+	 * 取得单一对象
+	 * @param id
+	 * @return
+	 */
+	public <get value="one.name" case="hu" /> getById(Integer id);
+	
+	/**
+	 * 删除
+	 * @param id
+	 */
+	public void delete(Integer id);
+	
+	/**
+	 * 保存
+	 * @param <get value="one.name" case="l" />
+	 */
+	public void save(<get value="one.name" case="headUpper" /> <get value="one.name" case="l" />);
+	
+	/**
+	 * 修改
+	 * @param <get value="one.name" case="l" />
+	 */
+	public void update(<get value="one.name" case="hu" /> <get value="one.name" case="l" />);
+	
+	
+	
+}

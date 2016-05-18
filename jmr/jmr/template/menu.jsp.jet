@@ -1,0 +1,5 @@
+<%@jet package="translated" class="Menu_jsp"%>
+<entity var="many" relation="many" />
+    <m:insert id="menu">   
+    <li><a href="${basePath}<get value='many.name'/>.do?act=find"><get value='many.property("menuName")'/></a></li>
+	</m:insert>

@@ -1,0 +1,276 @@
+<?xml version="1.0"?>
+<jmr xmlns="http://www.eclipse-jmr.org/jmr-1.0.xsd">
+	<model>
+      <group name="shop">
+         <entity from="db" name="book" relation="many" type="table">
+            <userset name="className">Book</userset>
+            <field dbType="INT" fullType="java.lang.Integer" id="id" isNew="false" isUsed="true" jdbcType="INTEGER" name="id" type="Integer">
+               <database name="isNull">false</database>
+               <database name="isAutoIncrement">true</database>
+               <database name="size">10</database>
+               <table name="isPk">true</table>
+               <table name="isFk">false</table>
+               <userset name="controlType">text</userset>
+               <userset name="isEdit">false</userset>
+               <userset name="isQuery">false</userset>
+            </field>
+            <field dbType="VARCHAR" fullType="java.lang.String" id="name" isNew="false" isUsed="true" jdbcType="VARCHAR" name="name" type="String">
+               <database name="isNull">false</database>
+               <database name="isAutoIncrement">false</database>
+               <database name="size">50</database>
+               <table name="isPk">false</table>
+               <table name="isFk">false</table>
+               <userset name="controlType">text</userset>
+               <userset name="isEdit">true</userset>
+               <userset name="isQuery">true</userset>
+            </field>
+            <field dbType="INT" fullType="java.lang.Integer" id="type" isNew="false" isUsed="true" jdbcType="INTEGER" name="type" type="Integer">
+               <database name="isNull">false</database>
+               <database name="isAutoIncrement">false</database>
+               <database name="size">10</database>
+               <table name="isPk">false</table>
+               <table name="isFk">false</table>
+               <userset name="controlType">select</userset>
+               <userset name="isEdit">true</userset>
+               <userset name="isQuery">true</userset>
+               <data name="娱乐">0</data>
+               <data name="体育">1</data>
+            </field>
+            <field dbType="TIMESTAMP" fullType="java.util.Date" id="regist_time" isNew="false" isUsed="true" jdbcType="TIMESTAMP" name="registTime" type="Date">
+               <database name="isNull">true</database>
+               <database name="isAutoIncrement">false</database>
+               <database name="size">19</database>
+               <table name="isPk">false</table>
+               <table name="isFk">false</table>
+               <userset name="controlType">date</userset>
+               <userset name="isEdit">true</userset>
+               <userset name="isQuery">true</userset>
+            </field>
+            <column name="controlType" type="Select">
+               <select>
+                  <value>text</value>
+                  <value>select</value>
+                  <value>date</value>
+               </select>
+            </column>
+            <column name="isEdit" type="Boolean">
+            </column>
+            <column name="isQuery" type="Boolean">
+            </column>
+            <userset name="menuName">书籍</userset>
+         </entity>
+      </group> 
+	</model>
+	<run>
+		<project name="model">
+			<directory name="service">
+            <task name="service">
+               <modelGroupName>shop</modelGroupName>
+               <actionClass></actionClass>
+               <templatePath>jmr/jmr/template/service.java.jet</templatePath>
+               <targetContainer>/jmr/src/com/jmr/service</targetContainer>
+               <targetName>I${many.className}Service</targetName>
+               <targetExt>java</targetExt>
+               <targetEncoding>UTF-8</targetEncoding>
+               <generation mode="overlay"></generation>
+            </task>
+            <task name="serviceImpl">
+               <modelGroupName>shop</modelGroupName>
+               <actionClass></actionClass>
+               <templatePath>jmr/jmr/template/serviceImpl.java.jet</templatePath>
+               <targetContainer>/jmr/src/com/jmr/service/impl</targetContainer>
+               <targetName>${many.className}ServiceImpl</targetName>
+               <targetExt>java</targetExt>
+               <targetEncoding>UTF-8</targetEncoding>
+               <generation mode="overlay"></generation>
+            </task>
+            <task name="spring_xml">
+               <modelGroupName>shop</modelGroupName>
+               <actionClass></actionClass>
+               <templatePath>jmr/jmr/template/bean.xml.jet</templatePath>
+               <targetContainer>/jmr/src/spring</targetContainer>
+               <targetName>beanContext</targetName>
+               <targetExt>xml</targetExt>
+               <targetEncoding>UTF-8</targetEncoding>
+               <generation mode="merge"></generation>
+            </task>
+			</directory>
+			<directory name="dao">
+				<task name="daoImpl">
+					<modelGroupName>shop</modelGroupName>
+					<actionClass></actionClass>
+					<templatePath>jmr/jmr/template/daoImpl.java.jet</templatePath>
+					<targetContainer>/jmr/src/com/jmr/dao/impl</targetContainer>
+					<targetName>${many.className}DaoImpl</targetName>
+					<targetExt>java</targetExt>
+					<targetEncoding>UTF-8</targetEncoding>
+               <generation mode="overlay"></generation>
+				</task>
+				<task name="dao">
+					<modelGroupName>shop</modelGroupName>
+					<actionClass></actionClass>
+					<templatePath>jmr/jmr/template/dao.java.jet</templatePath>
+					<targetContainer>/jmr/src/com/jmr/dao</targetContainer>
+					<targetName>I${many.className}Dao</targetName>
+					<targetExt>java</targetExt>
+					<targetEncoding>UTF-8</targetEncoding>
+               <generation mode="overlay"></generation>
+				</task>
+			</directory>
+			<directory name="entity">
+				<task name="entity">
+					<modelGroupName>shop</modelGroupName>
+					<actionClass></actionClass>
+					<templatePath>jmr/jmr/template/entity.java.jet</templatePath>
+					<targetContainer>/jmr/src/com/jmr/entity</targetContainer>
+					<targetName>${many.className}</targetName>
+					<targetExt>java</targetExt>
+					<targetEncoding>UTF-8</targetEncoding>
+               <generation mode="overlay"></generation>
+				</task>
+            <task name="hibernate_xml">
+               <modelGroupName>shop</modelGroupName>
+               <actionClass></actionClass>
+               <templatePath>jmr/jmr/template/hbm.xml.jet</templatePath>
+               <targetContainer>/jmr/src/hibernate</targetContainer>
+               <targetName>${many.className}</targetName>
+               <targetExt>hbm.xml</targetExt>
+               <targetEncoding>UTF-8</targetEncoding>
+               <generation mode="overlay"></generation>
+            </task>
+			</directory>
+		</project>
+		<project name="view">
+			<directory name="jsp">
+            <task name="menu_jsp">
+               <modelGroupName>shop</modelGroupName>
+               <actionClass></actionClass>
+               <templatePath>jmr/jmr/template/menu.jsp.jet</templatePath>
+               <targetContainer>/jmr/WebContent/common/include</targetContainer>
+               <targetName>menu</targetName>
+               <targetExt>jsp</targetExt>
+               <targetEncoding>UTF-8</targetEncoding>
+               <generation mode="merge"></generation>
+            </task>
+				<task name="create_jsp">
+					<modelGroupName>shop</modelGroupName>
+					<actionClass></actionClass>
+					<templatePath>jmr/jmr/template/entity.jsp.jet</templatePath>
+					<targetContainer>/jmr/WebContent/views/${many.name}</targetContainer>
+					<targetName>${many.name}</targetName>
+					<targetExt>jsp</targetExt>
+					<targetEncoding>UTF-8</targetEncoding>
+               <generation mode="overlay"></generation>
+				</task>
+				<task name="create_jsp_add">
+					<modelGroupName>shop</modelGroupName>
+					<actionClass></actionClass>
+					<templatePath>jmr/jmr/template/entityAdd.jsp.jet</templatePath>
+					<targetContainer>/jmr/WebContent/views/${many.name}</targetContainer>
+					<targetName>${many.name}Add</targetName>
+					<targetExt>jsp</targetExt>
+					<targetEncoding>UTF-8</targetEncoding>
+               <generation mode="overlay"></generation>
+				</task>
+				<task name="create_jsp_modify">
+					<modelGroupName>shop</modelGroupName>
+					<actionClass></actionClass>
+					<templatePath>jmr/jmr/template/entityModify.jsp.jet</templatePath>
+					<targetContainer>/jmr/WebContent/views/${many.name}</targetContainer>
+					<targetName>${many.name}Modify</targetName>
+					<targetExt>jsp</targetExt>
+					<targetEncoding>UTF-8</targetEncoding>
+               <generation mode="overlay"></generation>
+				</task>
+			</directory>
+		</project>
+      <project name="control">
+      <directory name="action">
+			<task name="action">
+				<modelGroupName>shop</modelGroupName>
+				<actionClass></actionClass>
+				<templatePath>jmr/jmr/template/action.java.jet</templatePath>
+				<targetContainer>/jmr/src/com/jmr/action</targetContainer>
+				<targetName>${many.className}Action</targetName>
+				<targetExt>java</targetExt>
+				<targetEncoding>UTF-8</targetEncoding>
+               <generation mode="overlay"></generation>
+			</task>
+            <task name="struts">
+               <modelGroupName>shop</modelGroupName>
+               <actionClass></actionClass>
+               <templatePath>jmr/jmr/template/struts.xml.jet</templatePath>
+               <targetContainer>/jmr/src/struts</targetContainer>
+               <targetName>struts-config</targetName>
+               <targetExt>xml</targetExt>
+               <targetEncoding>UTF-8</targetEncoding>
+               <generation mode="merge"></generation>
+            </task>
+			</directory>
+      </project>
+	</run>
+	<db>
+      <connection
+            autolink="false"
+            classname="com.mysql.jdbc.Driver"
+            name="mysql"
+            password="root"
+            savepassword="true"
+            type="MySQL Connector/J"
+            url="jdbc:mysql://localhost:3306/jmr"
+            username="root">
+         <jars>
+            <jar path="/jmr/jmr/lib/mysql-connector-java-5.1.6-bin.jar" type="2"></jar>
+         </jars>
+      </connection>
+	</db>
+	<rule>
+		<types>
+			<type name="type">
+				<INTEGER>Integer</INTEGER>
+				<VARCHAR>String</VARCHAR>
+				<REAL>Float</REAL>
+				<DATE>Date</DATE>
+            <TIMESTAMP>Date</TIMESTAMP>
+			</type>
+         <type name="fullType">
+            <VARCHAR>java.lang.String</VARCHAR>
+            <TIMESTAMP>java.util.Date</TIMESTAMP>
+            <DATE>java.util.Date</DATE>
+            <INTEGER>java.lang.Integer</INTEGER>
+            <REAL>java.lang.Float</REAL>
+         </type>
+		</types>
+      <converts>
+         <convert name="propertyConvertAction">convert.PropertyConvertAction</convert>
+         <convert name="fieldConvertAction">convert.FieldConvertAction</convert>
+      </converts>
+	</rule>
+   <inits>
+      <init name="plan">
+         <columns>
+         	<column from="id" initType="convert" name="name" type="String" convert="fieldConvertAction">
+            </column>
+            <column from="jdbcType" initType="convert" name="type" type="String" convert="type">
+            </column>
+            <column from="jdbcType" initType="convert" name="fullType" type="String" convert="fullType">
+            </column>
+            <column initType="defaultValue" name="controlType" type="Select">
+            <select>
+               <value name="text" selected="true"/>
+               <value name="select"/>
+               <value name="date"/>
+            </select>
+            </column>
+            <column initType="defaultValue" name="isEdit" type="Boolean" defaultValue="true">
+            </column>
+            <column initType="defaultValue" name="isQuery" type="Boolean" defaultValue="false">
+            </column>
+         </columns>
+         <properties>
+            <property initType="convert" name="className" from="name" convert="propertyConvertAction"></property>
+            <property initType="convert" name="menuName" convert="propertyConvertAction"></property>
+         </properties>
+      </init>
+   </inits>
+</jmr>  

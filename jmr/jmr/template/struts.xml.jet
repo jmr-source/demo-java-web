@@ -1,0 +1,12 @@
+<%@jet package="translated" class="Struts_xml"%>
+
+<entity var="many" relation="many" />
+    <m:insert id="bean">
+       <action path="/<get value="many.name"/>"  type="com.jmr.action.<get value="many.name" case="headUpper"/>Action"
+                  scope="request" parameter="act"> 
+            <forward name="toFind" path="/views/<get value="many.name"/>/<get value="many.name"/>.jsp" />
+	        <forward name="toFindAction" path="/views/<get value="many.name"/>.do?act=find" redirect="true" />
+	   		<forward name="toAdd" path="/views/<get value="many.name"/>/<get value="many.name"/>Add.jsp" />
+	   		<forward name="toModify" path="/views/<get value="many.name"/>/<get value="many.name"/>Modify.jsp" />           
+       </action>            
+	</m:insert>

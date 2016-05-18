@@ -1,0 +1,99 @@
+<%@ jet package="translated" class="EntityModify_jsp"%>
+<entity var="many" relation="many" />
+<\%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<\%@ include file="/common/include/views_head.jsp"%>
+<head>
+<script type="text/javascript">
+//提交验证
+function submit() {
+	var frm = document.forms["baseForm"];
+	<for var="field" value='many.fields' test='field.isPk == false'>
+    var object = $("#<get value='field.name'/>").val().trim();
+	if (object == ""){
+	  alert("<get value='field.name'/>不能为空");
+	  $("#<get value='field.name'/>").focus();
+	  return false;
+	}
+	</for>
+	frm.submit();
+}
+//重置
+function reset() {
+    <for var="field" value='many.fields' test='field.isPk == false'>
+	  $("#<get value='field.name'/>").val("${<get value='many.name'/>.<get value='field.name'/>}");
+	</for>
+}
+
+//返回
+function toBack() {
+	var frm = document.forms["baseForm"];
+	frm.action = "${basePath}<get value='many.name'/>.do?act=find&marking=2";
+	frm.submit();
+	return false;
+}
+
+</script>
+</head>
+<body>
+	<div class="wrapper">
+		<\%@ include file="/common/include/menu.jsp"%>
+
+		<div class="rightContent">
+			<span class="title"><get value='many.name' case="headUpper"/></span>
+			<!-- End of title -->
+
+			<div class="mainContainer">
+				<form action="${basePath}<get value='many.name'/>.do?act=update" method="post"
+					name="baseForm" />
+				<input type="hidden" id="id" name="id" value="${id}" /> <input
+					type="hidden" id="pageNo" name="pageNo" value="${pageNo}" /> <input
+					type="hidden" id="pageSize" name="pageSize" value="${pageSize}" />
+					<table width="634" class="tb2_green" border="0" cellspacing="0"
+					cellpadding="0">
+					<for var="field" value='many.fields' test='field.property("isEdit") == true'>
+					<tr>
+						<th><get value='field.name'/></th>
+						<td>
+						    <if test='field.property("controlType") == "text"'>
+						    <input type="text" id="<get value='field.name'/>" name="<get value='field.name'/>" 
+						    value="${<get value='many.name'/>.<get value='field.name'/>}" size="70" maxlength="300" />
+						    </if>
+						    <elseif test='field.property("controlType") == "select"'>
+						    <select id="<get value='field.name'/>" name="<get value='field.name'/>">
+						       <for var='data' value='field.datas'>
+						          <option value="<get value='data.value'/>"><get value='data.name'/></option>
+						       </for>
+                            </select>
+                            <script>
+                            $("#<get value='field.name'/>").val("${<get value='many.name'/>.<get value='field.name'/>}");
+                            </script>
+						    </elseif>
+						    <elseif test='field.property("controlType") == "date"'>
+						    <input id="<get value='field.name'/>" name="<get value='field.name'/>" 
+						    value="${<get value='many.name'/>.<get value='field.name'/>}" class="Wdate" 
+						    onfocus="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss',readOnly:true})"/>
+						    </elseif>
+						</td>
+					</tr>
+					</for>
+				</table>
+				</form>
+				<div class="btnBlock">
+					<input style="width: 50px;" name="" value="储存" type="button" onclick="submit();" />&nbsp;&nbsp; 
+					<input style="width: 50px;" name="" value="清除" type="button" onclick="reset();"/>&nbsp;&nbsp;
+					<input style="width: 50px;" name="" value="返回" type="button" onclick="toBack();" />
+				</div>
+				<!-- End of btnBlock -->
+                    
+			</div>
+			<!-- End of mainContainer -->
+		</div>
+		<!-- End of rightContent -->
+	</div>
+	<!-- End of wrapper -->
+</body>
+</html>
+

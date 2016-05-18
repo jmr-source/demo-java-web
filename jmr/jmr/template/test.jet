@@ -1,0 +1,8 @@
+<%@jet package="translated" class="Test"%>
+<entity var='many' relation="many"/>
+<for var='field' value='many.fields'>
+<get value='field.name'/>
+<for var='data' value='field.datas'>
+<get value='data.name'/> <get value='data.value'/>
+</for>
+</for>
