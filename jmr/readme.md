@@ -1,28 +1,65 @@
-# <div align="center">实战演示</div> #
+# <div align="center">java web项目</div> #
 
 ----------
-接下来，通过一个项目来演示，jmr应用在实战中的效果。
 
-### 实战项目 ###
+### 实战操作 ###
 
-以下是一个典型的java web项目。
+以下是一个典型的java web项目，首先点击“File”—>“New”—>“Jmr”  
 
-![](image/demo1.png)
+![](image/demo-java1.png)
 
-项目布局本身不复杂，左边是项目的功能菜单，右边是实际的功能实现。
-其中，书籍这个模块是jmr生成的，包括增删查改在内的所有代码。
+弹出对话框，新建Jmr文件  
 
-查询页面
-![](image/demo3.png)
+![](image/demo-java2.png)
 
-新增页面
-![](image/demo4.png)
+接着点击新建的“gen.jmr.xml”，在“模型”视图里新建“组”  
 
-修改页面
-![](image/demo5.png)
+![](image/demo-java3.png)
 
-项目的结构是传统的MVC模式，jmr生成了从实体类到jsp页面的所有代码。以下就是所有生成任务。
-![](image/demo2.png)
+弹出对话框，新建组  
 
-我们在后面的教程中，会结合这个项目给大家介绍如何利用jmr为自己的项目定制代码生成。
+![](image/demo-java4.png)
 
+点击“shop”组  
+
+![](image/demo-java5.png)
+
+点击“新建连接”按钮，设置连接属性  
+
+![](image/demo-java6.png)
+
+进行模型转换（之前已设置了一个预设方案(plan)，如需详细了解，可以点击此处）  
+
+![](image/demo-java7.png)
+
+(mysql数据库表结构)  
+
+![](image/demo-java8.png)
+
+模型转换后的页面显示的内容  
+
+![](image/demo-java9.png)
+
+![](image/demo-java10.png)
+
+![](image/demo-java11.png)
+
+![](image/demo-java12.png)
+
+点击“任务”，设置“任务设定”的属性，然后勾选要运行的任务，接着点击“运行”（之前已设置模板，如需详细了解，可以点击此处）  
+
+![](image/demo-java13.png)
+
+![](image/demo-java14.png)
+
+运行结果后，控制台将会把运行结果显示出来，并且可以做相应的操作
+
+![](image/demo-java15.png)
+
+jmr生成的文件
+
+![](image/demo-java16.png)
+
+jmr生成后的效果
+
+![](image/demo-java17.png)
