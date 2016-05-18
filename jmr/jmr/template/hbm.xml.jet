@@ -14,7 +14,7 @@
 	  </if>
 	  <else>
       <property name="<get value="field.name"/>" type="<get value="field.fullType"/>">
-		<column name="<get value="field.name"/>" />
+		<column name="<get value="field.id"/>" />
 	  </property>
       </else>
 	</for>
