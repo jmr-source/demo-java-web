@@ -1,4 +1,10 @@
-﻿/*
+﻿Drop DATABASE if exists jmr;
+
+CREATE DATABASE jmr;
+
+use jmr;
+
+/*
 MySQL Data Transfer
 Source Host: localhost
 Source Database: jmr
@@ -113,8 +119,7 @@ CREATE TABLE `users` (
 -- ----------------------------
 -- Records 
 -- ----------------------------
-INSERT INTO `functions` VALUES ('2', '管理用户', 'users.do?act=find', '1', null, '1');
-INSERT INTO `functions` VALUES ('3', '最新消息', 'news.do?act=find', '2', null, '1');
+INSERT INTO `functions` VALUES ('2', 'users', 'users.do?act=find', '1', null, '1');
 INSERT INTO `users` VALUES ('1', 'admin', 'd2518f1f1f61247581ea8e1a69785b3b', 'admin', '1', '1', '2012-09-25 09:20:13', null, null);
 INSERT INTO `users` VALUES ('2', 'admin2', 'd2518f1f1f61247581ea8e1a69785b3b', 'admin2', '1', '1', '2012-09-25 09:47:55', null, null);
 INSERT INTO `users` VALUES ('3', 'admin3', 'd2518f1f1f61247581ea8e1a69785b3b', 'admin3', '1', '1', '2012-09-25 09:48:08', null, null);
