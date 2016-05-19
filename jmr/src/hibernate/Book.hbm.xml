@@ -14,7 +14,7 @@
 		<column name="type" />
 	  </property>
       <property name="registTime" type="java.util.Date">
-		<column name="registTime" />
+		<column name="regist_time" />
 	  </property>
 	</class>
 </hibernate-mapping>
