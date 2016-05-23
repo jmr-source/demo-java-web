@@ -51,7 +51,7 @@ public class AdminVerifyBaseAction extends BaseAction{
 		
 		
 		if(userSession == null){
-			request.setAttribute("msg", "管理员Session超时，请重新登录");
+			request.setAttribute("msg", "Administrator Session timeout, please sign in again!");
 			request.getSession().invalidate();//清除所有Session
 //			response.sendRedirect(basePath + "/login.do?act=toLogin");
 			request.getRequestDispatcher("/login.do?act=toLogin").forward(request, response);

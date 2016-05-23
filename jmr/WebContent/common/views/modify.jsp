@@ -29,7 +29,7 @@
 				frm.passWord.focus();
 				return false;
 			}else if(!isLetterAndNum(passWord)){
-				alert("The password should contain the numbers!");
+				alert("Passwords must contain both English characters and numbers!");
 				frm.passWord.focus();
 				return false;
 			}else if(passWord == loginId){
@@ -90,14 +90,14 @@
     <form action="${basePath}index.do?act=modifyPwdUpdate" method="post" name="baseForm">
     <div class="mainContainer">
     	<div class="function">
-    		<table width='50%'  border=0>
+    		<table width='100%'  border=0>
 				<tr>
 					<td align='left' colspan="2">
 			    	1.In front of a<font color='red'>*</font>labeled as a required field.<br/>
 			    	2.The password must not be the same as the account.<br/>
 			    	3.Not the same password and account.<br/>
 			    	4.Minimum is 6 characters.<br/>
-			    	5.The password must contain English letters.<br/>
+			    	5.Passwords must contain both English characters and numbers.<br/>
 			    	</td>
 				</tr>
 			</table>

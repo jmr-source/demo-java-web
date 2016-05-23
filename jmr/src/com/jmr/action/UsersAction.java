@@ -205,11 +205,11 @@ public class UsersAction extends AdminVerifyBaseAction{
 		if(id>0){
 			us = usersService.get(id);
 			us.setModifier(PageUtil.getSessionUser(request).getCreator());
-			us.setModifyDT(now);
+			//us.setModifyDT(now);
 		}else{
 			us = new Users();
 			us.setCreator(PageUtil.getSessionUser(request).getCreator());
-			us.setCreateDT(now);
+//			us.setCreateDT(now);
 		}
 		us.setAccount(account);
 		us.setPassword(PageUtil.desEncrypt(password));

@@ -1,27 +1,27 @@
 <%@ jet package="translated" class="Entity_java"%>
-<%--包名--%>
+<%--package--%>
 package <java:package/>;
 
-<%--导入类型--%>
+<%--imports--%>
 <entity var="many" relation="many"/>
 <for var="field" value="many.fields" duplicate="false">
 import <get value="field.fullType"/>;
 </for>
 
-<%--类名--%>
+<%--class messages--%>
 public class <java:class setScope="session" classNameVar="className" fullyClassNameVar="fullyClassName"/>{
-  <%--生成类的属性--%>
+  <%--generate fields--%>
   <for var="field" value="many.fields">
-    <%--判断字段是否使用--%>
+    <%--whether the field is used--%>
     private <get value="field.type"/> <get value="field.name"/>;
   </for>
 
-  <%--空的构造方法--%>
+  <%--Empty construction method--%>
     public <java:class/>() {
 		super();
 	}
 
-  <%--带参数的构造方法--%>
+  <%--Parameters construction method--%>
     public <java:class/>(<for value="many.fields" var="field" delimiter=", ">
 		                   <get value="field.type"/> <get value="field.name"/>
 	                     </for>) {
@@ -31,14 +31,14 @@ public class <java:class setScope="session" classNameVar="className" fullyClassN
 	  </for>
 	}
 	
-<%--属性get/set方法--%>   
+<%--get/set method--%>   
   <for value="many.fields" var="field">
-    <%--get方法,属性头字母大写--%>
+    <%--get method, header character to uppercase--%>
     public <get value="field.type"/> get<get value="field.name" case="headUpper"/>() {
 		return <get value="field.name"/>;
 	}
 	
-	<%--set方法,属性头字母大写--%>
+	<%--set method, header character to uppercase--%>
 	public void set<get value="field.name" case="headUpper"/>(<get value="field.type"/> <get value="field.name"/>){
 		this.<get value="field.name"/> = <get value="field.name"/>;
 	}

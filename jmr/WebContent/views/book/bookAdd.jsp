@@ -73,8 +73,8 @@ function toBack() {
 						<th>type</th>
 						<td>
 						    <select id="type" name="type">
-						          <option value="0">娱乐</option>
-						          <option value="1">体育</option>
+						          <option value="0">novel</option>
+						          <option value="1">magazine</option>
                             </select>
 						</td>
 					</tr>

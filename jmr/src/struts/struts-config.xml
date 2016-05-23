@@ -36,7 +36,7 @@
        		<forward name="toFindView" path="/views/users/users.jsp"></forward>	
        		<forward name="toAddView" path="/views/users/usersAdd.jsp"></forward>	
        		<forward name="toModifyView" path="/views/users/usersModify.jsp"></forward>	
-       		<forward name="toFindAction" path="/views/users.do?act=find"></forward>	
+       		<forward name="toFindAction" path="/users.do?act=find"></forward>	
        </action>
        
        <!-- insert_start id="bean" -->                      

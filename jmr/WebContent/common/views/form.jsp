@@ -3,7 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 
-<title>JMR管理系统</title>
+<title>JMR</title>
  <%@ include file="/common/include/header.jsp" %>
 
 </head>
@@ -14,12 +14,15 @@
     <%@ include file="/common/include/menu.jsp" %>
     <div class="rightContent">
 
-    <span class="title">JMR管理系统</span><!-- End of title -->
-    
+    <!-- 
+    <span class="title">JMR</span>
+    -->
+    <!-- End of title -->
+  
     <div class="mainContainer">
     	<div class="function" align="center">
     	<br/><br/><br/><br/><br/><br/><br/>
-       		<font size=5><b>欢迎登录JMR管理系统</b></font>
+       		<font size=5><b>Welcome to Jmr!</b></font>
          <br/><br/><br/><br/><br/><br/><br/>
         </table>
         </div><!-- End of mainContainer -->

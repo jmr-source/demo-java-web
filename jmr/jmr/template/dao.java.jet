@@ -7,7 +7,7 @@ package <java:package />;
 /**
  * Dao接口
  */
-<%-- 生成class文件名，同文件名一致（java类名命名规范）  --%>
+<%-- Generate class name, the same file name (Java name naming)  --%>
 public interface <java:class /> extends IBeanDao{
 
 }

@@ -85,7 +85,7 @@ public class ChgPathLinkService  {
         //准备寄信
         String Subject =subject;
         // from
-        String from = "JMR管理系统";
+        String from = "JMR";
         String host=  DeployInfoUtil.getEmailHost() ;
 
     // session

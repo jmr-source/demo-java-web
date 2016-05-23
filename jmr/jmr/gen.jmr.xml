@@ -33,8 +33,8 @@
                <userset name="controlType">select</userset>
                <userset name="isEdit">true</userset>
                <userset name="isQuery">true</userset>
-               <data name="娱乐">0</data>
-               <data name="体育">1</data>
+               <data name="novel">0</data>
+               <data name="magazine">1</data>
             </field>
             <field dbType="TIMESTAMP" fullType="java.util.Date" id="regist_time" isNew="false" isUsed="true" jdbcType="TIMESTAMP" name="registTime" type="Date">
                <database name="isNull">true</database>
@@ -57,7 +57,7 @@
             </column>
             <column name="isQuery" type="Boolean">
             </column>
-            <userset name="menuName">书籍</userset>
+            <userset name="menuName">Book</userset>
          </entity>
       </group> 
 	</model>

@@ -15,7 +15,7 @@
 <head>
 <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>JMR管理系统</title>
+<title>JMR</title>
 <link href="${basePath}common/css/backplate.css" rel="stylesheet" type="text/css" />
 <%@ include file="/common/include/header.jsp" %>
 <%@ include file="/common/include/xheditor_util.jsp"%>
@@ -82,7 +82,7 @@ function toModify(id, object){
  
 //删除
 function toDelete(id, object){	
-	if(!confirm("是否确定删除？")){
+	if(!confirm("Are you sure you want to delete?")){
 		return false;
 	}
 	var frm = document.forms["baseForm"];

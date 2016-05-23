@@ -2,7 +2,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html>
   <head>
-  <title>JMR管理系统</title>
+  <title>JMR</title>
   <!-- head start -->
 	<%@ include file="/common/include/header.jsp" %>
   <!-- head end -->
@@ -13,12 +13,12 @@ function subForm(){
 	
 	var account = frm.account.value.trim();
 	if(account == ""){
-		alert("账号不能为空");
+		alert("Account cannot be empty!");
 		frm.account.focus();
 		return false;
 	}else{
 		if(account.length<6){
-      		alert("账号至少6为长度");
+      		alert("Account length of at least 6!");
          	frm.account.focus();
             return false;
       	}
@@ -26,27 +26,27 @@ function subForm(){
 	
 	var name = frm.name.value.trim();
 	if(name == ""){
-		alert("姓名不能为空");
+		alert("Name cannot be empty!");
 		frm.name.focus();
 		return false;
 	}
 	
 	var password = frm.password.value.trim();
 	if(password == ""){
-		alert("密码不能为空");
+		alert("Password can not be empty!");
 		frm.password.focus();
 		return false;
 	}else{
       	if(password.length<6){
-      		alert("密码至少6位长度");
+      		alert("Password length of at least 6!");
          	frm.password.focus();
             return false;
       	}else if(!isLetterAndNum(password)){
-      	    alert("密码需包含英文字及数字");
+      	    alert("Passwords must contain both English characters and numbers!");
          	frm.password.focus();
             return false;
       	}else if(password == account){
-      	    alert("密码不得与账号相同");
+      	    alert("The password must not be the same as the account!");
          	frm.password.focus();
             return false;
       	}
@@ -54,7 +54,7 @@ function subForm(){
 	
 	$.get("${basePath}users.do?act=isExist&account=" + account,function(data){
 		if(data == "Y"){
-			alert("该账户已存在");
+			alert("Account already exists!");
 			frm.account.value="";
 		}else{
 			frm.submit();
@@ -89,42 +89,42 @@ function toBack(){
 	<%@ include file="/common/include/menu.jsp" %>
     
     <div class="rightContent">
-    <span class="title">管理者账号管理>新增</span><!-- End of title -->
+    <span class="title">Account Management>New</span><!-- End of title -->
     
     <div class="mainContainer">
     	<div class="function">
-		1.前方有<span>*</span>表示未必填栏位。<br/>
-		2.账号、密码长度至少6位。<br/>
-		3.密码不得与账号相同。<br/>
-		4.密码需包含英数字
+		1.In front of a<font color='red'>*</font>labeled as a required field.<br/>
+		2.Account, password length of at least 6<br/>
+		3.The password must not be the same as the account.<br/>
+		4.Passwords must contain both English characters and numbers.
     	</div><!-- End of function -->
 		<form action="${basePath}users.do?act=save" method="post" name="baseForm" />
 		<table width="634" class="tb2_green" border="0" cellspacing="0" cellpadding="0">
           <tr>
-            <th width="140"><span>*</span> 账号：</th>
+            <th width="140"><span>*</span> account：</th>
             <td width="462"><input type="text" name="account" maxlength="20" id="account"/></td>
           </tr>
           <tr>
-            <th><span>*</span> 姓名：</th>
+            <th><span>*</span> name：</th>
             <td bgcolor="#ececec"><input name="name" type="text" maxlength="25" id="name"/></td>
           </tr>
 		  <tr>
-            <th><span>*</span> 密码：</th>
+            <th><span>*</span> password：</th>
             <td><input name="password" type="password" maxlength="50" id="password"/></td>
           </tr>
           <tr>
-            <th><span>*</span> 状态：</th>
+            <th><span>*</span> state：</th>
             <td bgcolor="#ececec">
-            	<input type="radio" name="status" value="1" checked>启用</input>
-            	<input type="radio" name="status" value="0" >停用</input>
+            	<input type="radio" name="status" value="1" checked>enable</input>
+            	<input type="radio" name="status" value="0" >disable</input>
             </td>
           </tr>
         </table>
       
 		<div class="btnBlock">
-			<input style="width:50px;" name="" value="储存" type="button" onclick='subForm();'/>&nbsp;&nbsp;
-			<input style="width:50px;" name="" value="清除" type="button" onclick='toClear();'/>&nbsp;&nbsp;
-			<input style="width:50px;" name="" value="返回" type="button" onclick='toBack();'/></div><!-- End of btnBlock -->
+			<input style="width:50px;" name="" value="Save" type="button" onclick='subForm();'/>&nbsp;&nbsp;
+			<input style="width:50px;" name="" value="Clear" type="button" onclick='toClear();'/>&nbsp;&nbsp;
+			<input style="width:50px;" name="" value="Back" type="button" onclick='toBack();'/></div><!-- End of btnBlock -->
      </form>
     </div><!-- End of mainContainer -->
     </div><!-- End of rightContent -->

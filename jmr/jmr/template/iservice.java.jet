@@ -8,14 +8,14 @@ import com.jmr.model.<get value="one.name" case="hu" />;
 
 
 /**
- * 消息service接口
+ * Service interface
  *
  */
- <%-- 生成class文件名，同文件名一致（java类名命名规范）  --%>
+ 
 public interface <java:class /> {
 
 	/**
-	 * 分页查询
+	 * Paging query
 	 * @param pageNo
 	 * @param pageCount
 	 * @param code
@@ -28,26 +28,26 @@ public interface <java:class /> {
 	public ListPage find(int pageNo, int pageCount, String code, int status, String subjectCE, String startDate, String endDate);
 	
 	/**
-	 * 取得单一对象
+	 * Get object
 	 * @param id
 	 * @return
 	 */
 	public <get value="one.name" case="hu" /> getById(Integer id);
 	
 	/**
-	 * 删除
+	 * Delete
 	 * @param id
 	 */
 	public void delete(Integer id);
 	
 	/**
-	 * 保存
+	 * Save
 	 * @param <get value="one.name" case="l" />
 	 */
 	public void save(<get value="one.name" case="headUpper" /> <get value="one.name" case="l" />);
 	
 	/**
-	 * 修改
+	 * Update
 	 * @param <get value="one.name" case="l" />
 	 */
 	public void update(<get value="one.name" case="hu" /> <get value="one.name" case="l" />);

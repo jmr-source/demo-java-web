@@ -8,13 +8,13 @@
 <\%@ include file="/common/include/views_head.jsp"%>
 <head>
 <script type="text/javascript">
-//提交验证
+//Submit verification
 function submit() {
 	var frm = document.forms["baseForm"];
 	<for var="field" value='many.fields' test='field.isPk == false'>
     var object = $("#<get value='field.name'/>").val().trim();
 	if (object == ""){
-	  alert("<get value='field.name'/>不能为空");
+	  alert("<get value='field.name'/> can not be empty!");
 	  $("#<get value='field.name'/>").focus();
 	  return false;
 	}
@@ -22,14 +22,14 @@ function submit() {
 	frm.submit();
 }
  
-//清除
+//Clear
 function clearAll() {
 	<for var="field" value='many.fields' test='field.isPk == false'>
 	  $("#<get value='field.name'/>").val("");
 	</for>
 }
 
-//返回
+//Back
 function toBack() {
 	var frm = document.forms["baseForm"];
 	frm.action = "${basePath}<get value='many.name'/>.do?act=find&marking=2";
@@ -79,9 +79,9 @@ function toBack() {
 				</table>
 				</form>
 				<div class="btnBlock">
-					<input style="width: 50px;" name="" value="储存" type="button" onclick="submit()" />&nbsp;&nbsp; 
-					<input style="width: 50px;" name="" value="清除" type="button" onclick="clearAll()" />&nbsp;&nbsp;
-					<input style="width: 50px;" name="" value="返回" type="button" onclick="back();" />
+					<input style="width: 50px;" name="" value="Save" type="button" onclick="submit()" />&nbsp;&nbsp; 
+					<input style="width: 50px;" name="" value="Clear" type="button" onclick="clearAll()" />&nbsp;&nbsp;
+					<input style="width: 50px;" name="" value="Back" type="button" onclick="back();" />
 				</div>
 				<!-- End of btnBlock -->
 

@@ -2,7 +2,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html>
   <head>
-  <title>JMR管理系统</title>
+  <title>JMR</title>
   <!-- head start -->
 	<%@ include file="/common/include/header.jsp" %>
   <!-- head end -->
@@ -46,7 +46,7 @@ function toModify(id){
 
 //删除
 function del(id){
-	if(!confirm("是否确定删除？")){
+	if(!confirm("Are you sure you want to delete?")){
 		return false;
 	}
 	var frm = document.forms["baseForm"];
@@ -61,17 +61,17 @@ function del(id){
 	<%@ include file="/common/include/menu.jsp" %>
     
     <div class="rightContent">
-    <span class="title">管理者账号管理</span><!-- End of title -->
+    <span class="title">Account Management</span><!-- End of title -->
     
     <div class="mainContainer">
     
     <form action="${basePath}users.do" method="post" name="baseForm" />
     	<div class="function">
-        <img src="${basePath}common/images/icon_quiz.gif" />&nbsp;&nbsp;查询条件&nbsp;&nbsp;&nbsp;&nbsp;
-        	账号：<input type="text" name="accountKey" value="${accountKey}" style="width:120px;"/>&nbsp;&nbsp;&nbsp;&nbsp;
-        	姓名：<input type="text" name="nameKey" value="${nameKey}" style="width:120px;"/>&nbsp;&nbsp;&nbsp;&nbsp;
-        	<input style="width:50px;" name="" value="查询" type="button" onclick="find()"/>&nbsp;&nbsp;
-        	<input style="width:50px;" name="" value="新增" type="button" onclick="toAdd()"/>
+        <img src="${basePath}common/images/icon_quiz.gif" />&nbsp;&nbsp;Query&nbsp;&nbsp;&nbsp;&nbsp;
+        	account:<input type="text" name="accountKey" value="${accountKey}" style="width:120px;"/>&nbsp;&nbsp;&nbsp;&nbsp;
+        	name:<input type="text" name="nameKey" value="${nameKey}" style="width:120px;"/>&nbsp;&nbsp;&nbsp;&nbsp;
+        	<input style="width:60px;" name="" value="Search" type="button" onclick="find()"/>&nbsp;&nbsp;
+        	<input style="width:50px;" name="" value="New" type="button" onclick="toAdd()"/>
         	</div><!-- End of function -->
 			<input name="pageNo" value="${param.pageNo}" type="hidden"/>
 			<input name="pageSize" value="${param.pageSize}" type="hidden"/>
@@ -79,14 +79,14 @@ function del(id){
 			<input type="hidden" name="id" value=""/>
 	         <table width="634" class="tbl_green" border="0" cellspacing="0" cellpadding="0">
 		      <tr>
-	            <th>序号</th>
-	            <th>账号</th>
-	            <th>姓名</th>
-	            <th>状态</th>
-	            <th>功能选项</th>
+	            <th>number</th>
+	            <th>account</th>
+	            <th>name</th>
+	            <th>state</th>
+	            <th>operation</th>
 	          </tr>
 	           <c:if test="${empty listPage.dataList }">
-			    <tr><td colspan="5" align="center">暂无资料</td></tr>
+			    <tr><td colspan="5" align="center">Cannot find data!</td></tr>
 			 	</c:if>
 			            
 				<c:if test="${!empty listPage.dataList }">
@@ -103,16 +103,16 @@ function del(id){
 							<td align="center">&nbsp;
 								<c:choose>
 									<c:when test="${us.status == 0}">
-										停用
+										disable
 									</c:when>
 									<c:otherwise>
-										启用
+										enable
 									</c:otherwise>
 								</c:choose>
 							</td>
 							<td align="center">
-								<input type="button" value="修改" onclick="toModify('${us.id}');"/>
-								<input type="button" value="删除" onclick="del('${us.id}');"/>
+								<input type="button" value="update" onclick="toModify('${us.id}');"/>
+								<input type="button" value="delete" onclick="del('${us.id}');"/>
 							</td>
 				   		</tr>
 				   </c:forEach>

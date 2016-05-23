@@ -2,7 +2,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" " http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html>
   <head>
-  <title>台灣紀錄片後台管理系統</title>
+  <title>JMR</title>
   <!-- head start -->
 	<%@ include file="/common/include/header.jsp" %>
   <!-- head end -->
@@ -13,28 +13,28 @@
 		
 		var oldPassWord=frm.oldPassWord.value.trim();
 		if(oldPassWord ==""){
-			alert("舊密碼不能為空");
+			alert("Old password can not be empty!");
 			frm.oldPassWord.focus();
 			return false;
 		}
 		var passWord=frm.passWord.value.trim();
 		if(passWord==""){
-			alert("密碼不能為空");
+			alert("Password can not be empty!");
 			frm.passWord.focus();
 			return false;
 		}else{
 			
 			var loginId = $("#loginId").val();
 			 if(passWord.length<6){
-				alert("密碼長度至少6位");
+				alert("Password length of at least 6!");
 				frm.passWord.focus();
 				return false;
 			}else if(!isLetterAndNum(passWord)){
-				alert("密碼需包含英數字");
+				alert("Passwords must contain both English characters and numbers!");
 				frm.passWord.focus();
 				return false;
 			}else if(passWord == loginId){
-				alert("密碼不得與帳號相同");
+				alert("The password must not be the same as the account!");
 				frm.passWord.focus();
 				return false;
 			}
@@ -42,11 +42,11 @@
 
 		var resPwd= frm.resPwd.value.trim();
 		if(resPwd==""){
-			alert("確認密碼不能為空");
+			alert("Password can not be empty!");
 			frm.resPwd.focus();
 			return false;
 		}else if(resPwd!=passWord){
-				alert("密碼必須與確認密碼相同");
+				alert("The password must be the same as the confirmation password!");
 				return false;
 			}
 			
@@ -87,18 +87,18 @@
 	<%@ include file="/common/include/menu.jsp" %>
     
     <div class="rightContent">
-    <span class="title">密碼修改</span><!-- End of title -->
+    <span class="title">Change password</span><!-- End of title -->
     <form action="${basePath}index.do?act=modifyPwdUpdate" method="post" name="baseForm">
     <div class="mainContainer">
     	<div class="function">
-    		<table width='50%'  border=0>
+    		<table width='100%'  border=0>
 				<tr>
 					<td align='left' colspan="2">
-			    	1.前方有<font color='red'>*</font>標示為必填欄位。<br/>
-			    	2.密碼必須與確認密碼相同。<br/>
-			    	3.密碼不得與帳號相同。<br/>
-			    	4.密碼長度至少6位。<br/>
-			    	5.密碼需包含英數字。<br/>
+			    	1.In front of a<font color='red'>*</font>labeled as a required field.<br/>
+			    	2.The password must be the same as the confirmation password.<br/>
+			    	3.Not the same password and account.<br/>
+			    	4.Minimum is 6 characters.<br/>
+			    	5.Passwords must contain both English characters and numbers.<br/>
 			    	</td>
 				</tr>
 			</table>
@@ -106,23 +106,23 @@
 		
 		<table width="634" class="tb2_green" border="0" cellspacing="0" cellpadding="0">
           <tr>
-            <th width="140"><span>*</span> 舊密碼：</th>
+            <th width="140"><span>*</span> Old password：</th>
             <td width="462"><input style="width:120px;" name="oldPassWord" type="password" id="oldPassWord"  maxlength="10"/></td>
           </tr>
           <tr>
-            <th><span>*</span> 密碼：</th>
+            <th><span>*</span> New password：</th>
             <td bgcolor="#ececec"><input style="width:120px;" name="passWord" type="password" id="passWord"  maxlength="10"/></td>
           </tr>
 		  <tr>
-            <th class="thLast"><span>*</span> 確認密碼：</th>
+            <th class="thLast"><span>*</span>Confirm new password:</th>
             <td><input style="width:120px;" name="resPwd" type="password" id="resPwd" maxlength="10"/></td>
           </tr>
 
         </table>
 		
 		<div class="btnBlock">
-			<input style="width:50px;" name="" value="儲存" type="button" onclick="subForm();" />&nbsp;&nbsp;
-			<input style="width:50px;" name="" value="清除" type="button" onclick="clearValue()" />&nbsp;&nbsp;
+			<input style="width:50px;" name="" value="Save" type="button" onclick="subForm();" />&nbsp;&nbsp;
+			<input style="width:50px;" name="" value="Clear" type="button" onclick="clearValue()" />&nbsp;&nbsp;
 		</div><!-- End of btnBlock -->
     </div><!-- End of mainContainer -->
     </form>

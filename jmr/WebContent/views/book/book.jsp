@@ -19,19 +19,19 @@
 				<input type="hidden" name="act" value=""/>
 	    		
 	    	</div><!-- End of btnAddDelete -->
-	    	<img src="${basePath}/common/images/icon_quiz.gif" />&nbsp;&nbsp;查询条件&nbsp;&nbsp;&nbsp;&nbsp;
+	    	<img src="${basePath}/common/images/icon_quiz.gif" />&nbsp;&nbsp;Query&nbsp;&nbsp;&nbsp;&nbsp;
 
-	  			<input style="width:50px;" value="查询" type="button" onclick="find();"/>&nbsp;&nbsp;
-	    		<input style="width:50px;" value="新增" type="button" onclick="toAdd('book')"/>&nbsp;&nbsp;
-	    		<br/><br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	  			<input style="width:60px;" value="Search" type="button" onclick="find();"/>&nbsp;&nbsp;
+	    		<input style="width:50px;" value="New" type="button" onclick="toAdd('book')"/>&nbsp;&nbsp;
+	    		<br/><br/>
 	    		name:
 				    <input name="name" id="name" 
 				    value="${name}" type="text" style="width:90px"/>&nbsp;&nbsp;&nbsp;&nbsp;
 	    		type:
 				    <select id="type" name="type">
 				    <option value=""></option>
-				    <option value="0">娱乐</option>
-				    <option value="1">体育</option>
+				    <option value="0">novel</option>
+				    <option value="1">magazine</option>
                     </select>
                     <script>
                     $("#type").val("${type}");
@@ -55,17 +55,17 @@
                 onfocus="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss',readOnly:true})" style="width:135px"/>
         </div><!-- End of function -->
         
-        <table width="700" class="tbl_green" border="0" cellspacing="0" cellpadding="0">
+        <table width="630" class="tbl_green" border="0" cellspacing="0" cellpadding="0">
           <tr>
-            <th width="38">序号</th>       
+            <th width="50">number</th>       
             <th width="50">name</th>
             <th width="50">type</th>
             <th width="50">registTime</th>
-            <th width="58">功能</th>
+            <th width="60">operation</th>
           </tr>
           
           <c:if test="${empty listPage.dataList }">
-			    <tr><td colspan="8" align="center">暂无资料</td></tr>
+			    <tr><td colspan="8" align="center">Cannot find data!</td></tr>
 		  </c:if>
 			            
 				<c:if test="${!empty listPage.dataList }">
@@ -79,8 +79,8 @@
 	                        <td align="center">&nbsp;${(listPage.currentPageNo-1)*listPage.currentPageSize + vs.count} </td>
 							<td align="center">${n.name}</td>
 							<td align="center">
-							    <c:if test="${n.type == 0}">娱乐</c:if>
-							    <c:if test="${n.type == 1}">体育</c:if>
+							    <c:if test="${n.type == 0}">novel</c:if>
+							    <c:if test="${n.type == 1}">magazine</c:if>
 						    </td>
 							<td align="center">
 							${n.registTime}
@@ -88,9 +88,9 @@
 							
 							<td align="center">
 								<select name="changeOne" id="changeOne" onchange="changeone('${n.id}',this.value,'book');">
-									<option value="">请选择</option>
-									<option value="0">修改</option>
-									<option value="1">删除</option>
+									<option value="">Please select</option>
+									<option value="0">update</option>
+									<option value="1">delete</option>
 								</select>
 							</td>
 				   		</tr>

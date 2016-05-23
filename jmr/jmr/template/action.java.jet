@@ -16,14 +16,14 @@ import com.jmr.service.I<get value="many.name" case="headUpper"/>Service;
 public class <get value="many.name" case="headUpper"/>Action extends AdminVerifyBaseAction{
 	private I<get value="many.name" case="headUpper"/>Service service;
 
-	//重写
+
 	public void setServlet(ActionServlet actionServlet){
 		super.setServlet(actionServlet);
 		service = (I<get value="many.name" case="headUpper"/>Service) getCtx().getBean("<get value="many.name"/>Service");//最新消息 
 	}
 
 	/**
-	 * 查询
+	 * Query
 	 */
 	public ActionForward find(ActionMapping mapping, ActionForm form,
 			HttpServletRequest request, HttpServletResponse response) throws Exception {
@@ -32,7 +32,7 @@ public class <get value="many.name" case="headUpper"/>Action extends AdminVerify
 
 
 	/**
-	 * 跳转到新增
+	 * Jump to new
 	 */	
 	public ActionForward toAdd(ActionMapping mapping, ActionForm form,
 			HttpServletRequest request, HttpServletResponse response) throws Exception {
@@ -40,7 +40,7 @@ public class <get value="many.name" case="headUpper"/>Action extends AdminVerify
 	}
 
 	/**
-	 * 保存
+	 * Save
 	 */
 	public ActionForward save(ActionMapping mapping, ActionForm form,
 			HttpServletRequest request, HttpServletResponse response) throws Exception {
@@ -52,7 +52,7 @@ public class <get value="many.name" case="headUpper"/>Action extends AdminVerify
 	}
 
 	/**
-	 * 转向修改
+	 * Jump to update
 	 * @param mapping
 	 * @param form
 	 * @param request
@@ -66,7 +66,7 @@ public class <get value="many.name" case="headUpper"/>Action extends AdminVerify
 
 
 	/**
-	 * 更新
+	 * Update
 	 * @param mapping
 	 * @param form
 	 * @param request
@@ -84,7 +84,7 @@ public class <get value="many.name" case="headUpper"/>Action extends AdminVerify
 
 
 	/**
-	 * 删除
+	 * Delete
 	 * @param mapping
 	 * @param form
 	 * @param request

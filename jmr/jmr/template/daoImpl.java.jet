@@ -9,7 +9,7 @@ import com.jmr.dao.I<get value="many.name" case="headUpper" />Dao;
 import com.jmr.entity.<get value="many.name" case="headUpper" />;
 
 /**
- * 消息Dao实现类
+ * Dao implementation class
  *
  */
 
@@ -25,7 +25,7 @@ public class <java:class /> implements I<get value="many.name" case="headUpper" 
 	 * 
 	 * @param pageNo 
 	 * @param pageCount
-	 * @param queryMap 查询的Map 
+	 * @param queryMap 
 	 * @return
 	 */
 	public ListPage find(int pageNo, int pageCount, Map queryMap) {
@@ -33,7 +33,7 @@ public class <java:class /> implements I<get value="many.name" case="headUpper" 
 	}
 	
 	/**
-	 * 取得单一对象
+	 * Get Object
 	 * @param id
 	 * @return
 	 */
@@ -42,7 +42,7 @@ public class <java:class /> implements I<get value="many.name" case="headUpper" 
 	}
 		
 	/**
-	 * 删除
+	 * Delete
 	 * @param id
 	 */
 	public void delete(Integer id) {
@@ -50,7 +50,7 @@ public class <java:class /> implements I<get value="many.name" case="headUpper" 
 	}
 	
 	/**
-	 * 保存
+	 * Save
 	 * @param <get value="many.name"/>
 	 */
 	public void save(Object object) {
@@ -58,7 +58,7 @@ public class <java:class /> implements I<get value="many.name" case="headUpper" 
 	}
 	
 	/**
-	 * 修改
+	 * Update
 	 * @param <get value="many.name"/>
 	 */
 	public void update(Object object) {

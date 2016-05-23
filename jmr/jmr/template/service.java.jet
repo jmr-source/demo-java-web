@@ -4,10 +4,10 @@ package <java:package />;
 <entity var="many" relation="many" />
 
 /**
- * 消息service接口
+ * Service interface
  *
  */
- <%-- 生成class文件名，同文件名一致（java类名命名规范）  --%>
+
 public interface <java:class /> extends IBeanService{
 
 }
