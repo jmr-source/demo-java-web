@@ -3,37 +3,37 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 
-<title>JMR管理系统</title>
+<title>JMR</title>
  <%@ include file="/common/include/header.jsp" %>
 <script type="text/JavaScript">
-	//验证
+	//check
 	function subForm(){
 		var frm = document.forms["baseForm"];
 		
 		var oldPassWord=frm.oldPassWord.value.trim();
 		if(oldPassWord ==""){
-			alert("旧密码不能为空");
+			alert("Old password can not be empty!");
 			frm.oldPassWord.focus();
 			return false;
 		}
 		var passWord=frm.passWord.value.trim();
 		if(passWord==""){
-			alert("密码不能为空");
+			alert("Password can not be empty!");
 			frm.passWord.focus();
 			return false;
 		}else{
 			
 			var loginId = $("#loginId").val();
 			 if(passWord.length<6){
-				alert("密码长度至少6位");
+				alert("Password length of at least 6!");
 				frm.passWord.focus();
 				return false;
 			}else if(!isLetterAndNum(passWord)){
-				alert("密码需包含英数字");
+				alert("The password should contain the numbers!");
 				frm.passWord.focus();
 				return false;
 			}else if(passWord == loginId){
-				alert("密码不得与账号相同");
+				alert("The password must not be the same as the account!");
 				frm.passWord.focus();
 				return false;
 			}
@@ -41,11 +41,11 @@
 
 		var resPwd= frm.resPwd.value.trim();
 		if(resPwd==""){
-			alert("确认密码不能为空");
+			alert("Password can not be empty!");
 			frm.resPwd.focus();
 			return false;
 		}else if(resPwd!=passWord){
-				alert("密码必须与确认密码相同");
+				alert("The password must be the same as the confirmation password!");
 				return false;
 			}
 			
@@ -86,18 +86,18 @@
 	 <%@ include file="/common/include/menu.jsp" %>
 	 
     <div class="rightContent">
-    <span class="title">密码修改</span><!-- End of title -->
+    <span class="title">Change password</span><!-- End of title -->
     <form action="${basePath}index.do?act=modifyPwdUpdate" method="post" name="baseForm">
     <div class="mainContainer">
     	<div class="function">
     		<table width='50%'  border=0>
 				<tr>
 					<td align='left' colspan="2">
-			    	1.前方有<font color='red'>*</font>标示为必填栏位。<br/>
-			    	2.密码必须与确认密码相同。<br/>
-			    	3.密码不得与账号相同。<br/>
-			    	4.密码长度至少6位。<br/>
-			    	5.密码需包含英数字。<br/>
+			    	1.In front of a<font color='red'>*</font>labeled as a required field.<br/>
+			    	2.The password must not be the same as the account.<br/>
+			    	3.Not the same password and account.<br/>
+			    	4.Minimum is 6 characters.<br/>
+			    	5.The password must contain English letters.<br/>
 			    	</td>
 				</tr>
 			</table>
@@ -105,23 +105,23 @@
 		
 		<table width="634" class="tb2_green" border="0" cellspacing="0" cellpadding="0">
           <tr>
-            <th width="140"><span>*</span> 旧密码：</th>
+            <th width="140"><span>*</span>Old password:</th>
             <td width="462"><input style="width:120px;" name="oldPassWord" type="password" id="oldPassWord"  maxlength="10"/></td>
           </tr>
           <tr>
-            <th><span>*</span> 密码：</th>
+            <th><span>*</span>New password:</th>
             <td bgcolor="#ececec"><input style="width:120px;" name="passWord" type="password" id="passWord"  maxlength="10"/></td>
           </tr>
 		  <tr>
-            <th class="thLast"><span>*</span> 确认密码：</th>
+            <th class="thLast"><span>*</span>Confirm new password:</th>
             <td><input style="width:120px;" name="resPwd" type="password" id="resPwd" maxlength="10"/></td>
           </tr>
 
         </table>
 		
 		<div class="btnBlock">
-			<input style="width:50px;" name="" value="储存" type="button" onclick="subForm();" />&nbsp;&nbsp;
-			<input style="width:50px;" name="" value="清除" type="button" onclick="clearValue()" />&nbsp;&nbsp;
+			<input style="width:50px;" name="" value="Save" type="button" onclick="subForm();" />&nbsp;&nbsp;
+			<input style="width:50px;" name="" value="Clear" type="button" onclick="clearValue()" />&nbsp;&nbsp;
 		</div><!-- End of btnBlock -->
     </div><!-- End of mainContainer -->
     </form>

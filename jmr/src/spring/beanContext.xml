@@ -13,39 +13,8 @@
 			<ref bean="usersDao" />
 		</property>
 	</bean>
-	
-	<bean id="newsDao" class="com.jmr.dao.impl.NewsDaoImpl">
-	    <property name="baseDao">
-			<ref bean="baseDao" />
-		</property>
-	</bean>
-	
-	<bean id="newsService" class="com.jmr.service.impl.NewsServiceImpl">
-	    <property name="newsDao">
-			<ref bean="newsDao" />
-		</property>
-		<property name="transactionTemplate">
-			<ref bean="transactionTemplate" />
-		</property>
-	</bean>
-	
-	<!-- insert_start id="bean" -->
-
-    <bean id="studentDao" class="com.jmr.dao.impl.StudentDaoImpl">
-	    <property name="baseDao">
-			<ref bean="baseDao" />
-		</property>
-	</bean>
-    
-	<bean id="studentService" class="com.jmr.service.impl.StudentServiceImpl">
-	    <property name="studentDao">
-			<ref bean="studentDao" />
-		</property>
-		<property name="transactionTemplate">
-			<ref bean="transactionTemplate" />
-		</property>
-	</bean>
-	
+		
+	<!-- insert_start id="bean" -->   
     <bean id="bookDao" class="com.jmr.dao.impl.BookDaoImpl">
 	    <property name="baseDao">
 			<ref bean="baseDao" />

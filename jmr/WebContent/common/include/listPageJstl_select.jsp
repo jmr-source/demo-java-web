@@ -43,7 +43,7 @@
     	</c:otherwise>
     	</c:choose>
     
-    	<a href="javascript:gotoPage(${listPage.totalPageCount});"  class="blue"><img src="${basePath}common/images/btn_pageFinal.gif" /></a> 目前在第
+    	<a href="javascript:gotoPage(${listPage.totalPageCount});"  class="blue"><img src="${basePath}common/images/btn_pageFinal.gif" /></a> on
   
     	 <select name="no2" id="no2" onchange="gotoPage(this.value)">
     	 <c:forEach var="x" begin="1" end="${listPage.totalPageCount}">
@@ -54,7 +54,7 @@
     	 >${x }</option>
     	 </c:forEach>
     	 </select> 
-    	頁，共 ${listPage.totalPageCount } 頁
+    	page,total ${listPage.totalPageCount } pages
     	</span>
 		</td>
 	</tr>

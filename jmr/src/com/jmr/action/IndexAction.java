@@ -44,7 +44,7 @@ public class IndexAction extends AdminVerifyBaseAction{
 	}
 	
 	/**
-	 * 登出
+	 * login out
 	 * @return
 	 * @throws Exception
 	 */
@@ -57,7 +57,7 @@ public class IndexAction extends AdminVerifyBaseAction{
 	}
 	
 	/**
-	 * 密码修改
+	 * change password
 	 * @return
 	 * @throws Exception
 	 */
