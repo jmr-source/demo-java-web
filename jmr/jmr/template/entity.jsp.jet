@@ -99,7 +99,7 @@
 						    </elseif>
 						    <elseif test='field.property("controlType") == "date"'>
 							<td align="center">
-							${n.<get value='field.name'/>}
+							<fmt:formatDate value="${n.<get value='field.name'/>}" pattern="yyyy-MM-dd HH:mm:ss"/>
 							</td>
 							</elseif>
 						    </for>

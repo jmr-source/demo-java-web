@@ -9,7 +9,7 @@
     <%@ include file="/common/include/menu.jsp" %>
     
     <div class="rightContent">
-    <span class="title"></span><!-- End of title -->
+    <span class="title">Book</span><!-- End of title -->
     <div class="mainContainer">
     	<form action="${basePath}book.do?act=find" method="post" name="baseForm" />
     	<div class="function">
@@ -83,7 +83,7 @@
 							    <c:if test="${n.type == 1}">magazine</c:if>
 						    </td>
 							<td align="center">
-							${n.registTime}
+							<fmt:formatDate value="${n.registTime}" pattern="yyyy-MM-dd HH:mm:ss"/>
 							</td>
 							
 							<td align="center">

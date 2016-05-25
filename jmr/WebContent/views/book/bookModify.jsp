@@ -5,37 +5,37 @@
 <%@ include file="/common/include/views_head.jsp"%>
 <head>
 <script type="text/javascript">
-//提交验证
+//Submit verification
 function submit() {
 	var frm = document.forms["baseForm"];
     var object = $("#name").val().trim();
 	if (object == ""){
-	  alert("name不能为空");
+	  alert("name can not be empty!");
 	  $("#name").focus();
 	  return false;
 	}
     var object = $("#type").val().trim();
 	if (object == ""){
-	  alert("type不能为空");
+	  alert("type can not be empty!");
 	  $("#type").focus();
 	  return false;
 	}
     var object = $("#registTime").val().trim();
 	if (object == ""){
-	  alert("registTime不能为空");
+	  alert("registTime can not be empty!");
 	  $("#registTime").focus();
 	  return false;
 	}
 	frm.submit();
 }
-//重置
+//Reset
 function reset() {
 	  $("#name").val("${book.name}");
 	  $("#type").val("${book.type}");
 	  $("#registTime").val("${book.registTime}");
 }
 
-//返回
+//Back
 function toBack() {
 	var frm = document.forms["baseForm"];
 	frm.action = "${basePath}book.do?act=find&marking=2";
@@ -84,16 +84,16 @@ function toBack() {
 						<th>registTime</th>
 						<td>
 						    <input id="registTime" name="registTime" 
-						    value="${book.registTime}" class="Wdate" 
+						    value=" <fmt:formatDate value="${book.registTime}" pattern="yyyy-MM-dd HH:mm:ss"/>" class="Wdate"
 						    onfocus="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss',readOnly:true})"/>
 						</td>
 					</tr>
 				</table>
 				</form>
 				<div class="btnBlock">
-					<input style="width: 50px;" name="" value="储存" type="button" onclick="submit();" />&nbsp;&nbsp; 
-					<input style="width: 50px;" name="" value="清除" type="button" onclick="reset();"/>&nbsp;&nbsp;
-					<input style="width: 50px;" name="" value="返回" type="button" onclick="toBack();" />
+					<input style="width: 50px;" name="" value="Save" type="button" onclick="submit();" />&nbsp;&nbsp; 
+					<input style="width: 50px;" name="" value="Clear" type="button" onclick="reset();"/>&nbsp;&nbsp;
+					<input style="width: 50px;" name="" value="Back" type="button" onclick="toBack();" />
 				</div>
 				<!-- End of btnBlock -->
                     

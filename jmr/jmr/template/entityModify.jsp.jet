@@ -73,7 +73,7 @@ function toBack() {
 						    </elseif>
 						    <elseif test='field.property("controlType") == "date"'>
 						    <input id="<get value='field.name'/>" name="<get value='field.name'/>" 
-						    value="${<get value='many.name'/>.<get value='field.name'/>}" class="Wdate" 
+						    value=" <fmt:formatDate value="${<get value='many.name'/>.<get value='field.name'/>}" pattern="yyyy-MM-dd HH:mm:ss"/>" class="Wdate"
 						    onfocus="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss',readOnly:true})"/>
 						    </elseif>
 						</td>
