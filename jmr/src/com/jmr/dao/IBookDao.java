@@ -1,7 +1,7 @@
 package com.jmr.dao;
 
 /**
- * Dao接口
+ * Dao interface
  */
 public interface IBookDao extends IBeanDao{
 

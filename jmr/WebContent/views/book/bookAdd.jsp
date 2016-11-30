@@ -1,43 +1,41 @@
 <%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
-
 <html>
 <%@ include file="/common/include/views_head.jsp"%>
 <head>
 <script type="text/javascript">
-//提交验证
+//Submit verification
 function submit() {
 	var frm = document.forms["baseForm"];
     var object = $("#name").val().trim();
 	if (object == ""){
-	  alert("name cannot be empty!");
+	  alert("name can not be empty!");
 	  $("#name").focus();
 	  return false;
 	}
     var object = $("#type").val().trim();
 	if (object == ""){
-	  alert("type cannot be empty!");
+	  alert("type can not be empty!");
 	  $("#type").focus();
 	  return false;
 	}
     var object = $("#registTime").val().trim();
 	if (object == ""){
-	  alert("registTime cannot be empty!");
+	  alert("registTime can not be empty!");
 	  $("#registTime").focus();
 	  return false;
 	}
 	frm.submit();
 }
  
-//清除
+//Clear
 function clearAll() {
 	  $("#name").val("");
 	  $("#type").val("");
 	  $("#registTime").val("");
 }
 
-//返回
+//Back
 function toBack() {
 	var frm = document.forms["baseForm"];
 	frm.action = "${basePath}book.do?act=find&marking=2";

@@ -1,13 +1,10 @@
 <%@ jet package="translated" class="Iservice_java"%>
-
 package <java:package />;
-<entity var="many" relation="many" />
 
 /**
  * Service interface
  *
  */
-
 public interface <java:class /> extends IBeanService{
 
 }

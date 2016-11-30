@@ -1,8 +1,7 @@
-
 package com.jmr.service;
 
 /**
- * 消息service接口
+ * Service interface
  *
  */
 public interface IBookService extends IBeanService{

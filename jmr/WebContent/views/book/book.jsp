@@ -9,7 +9,7 @@
     <%@ include file="/common/include/menu.jsp" %>
     
     <div class="rightContent">
-    <span class="title">Book</span><!-- End of title -->
+    <span class="title">Book</span>
     <div class="mainContainer">
     	<form action="${basePath}book.do?act=find" method="post" name="baseForm" />
     	<div class="function">
@@ -26,10 +26,9 @@
 	    		<br/><br/>
 	    		name:
 				    <input name="name" id="name" 
-				    value="${name}" type="text" style="width:90px"/>&nbsp;&nbsp;&nbsp;&nbsp;
+				    value="${name}" type="text" style="width:90px"/>
 	    		type:
 				    <select id="type" name="type">
-				    <option value=""></option>
 				    <option value="0">novel</option>
 				    <option value="1">magazine</option>
                     </select>
@@ -74,20 +73,24 @@
 						<c:set var="i" value="${(listPage.currentPageNo-1)*listPage.currentPageSize +1 }"/>
 					</c:if>
 				  
-				   <c:forEach items="${listPage.dataList}" var="n" varStatus="vs"> 
+				   <c:forEach items="${listPage.dataList}" var="obj" varStatus="vs"> 
 				   		 <tr class=${vs.count%2==1?"#ececec":"" }>
 	                        <td align="center">&nbsp;${(listPage.currentPageNo-1)*listPage.currentPageSize + vs.count} </td>
-							<td align="center">${n.name}</td>
+							<td align="center">${obj.name}</td>
 							<td align="center">
-							    <c:if test="${n.type == 0}">novel</c:if>
-							    <c:if test="${n.type == 1}">magazine</c:if>
+							    <c:if test="${obj.type == 0}">
+							      novel
+							    </c:if>
+							    <c:if test="${obj.type == 1}">
+							      magazine
+							    </c:if>
 						    </td>
 							<td align="center">
-							<fmt:formatDate value="${n.registTime}" pattern="yyyy-MM-dd HH:mm:ss"/>
+							<fmt:formatDate value="${obj.registTime}" pattern="yyyy-MM-dd HH:mm:ss"/>
 							</td>
 							
 							<td align="center">
-								<select name="changeOne" id="changeOne" onchange="changeone('${n.id}',this.value,'book');">
+								<select name="changeOne" id="changeOne" onchange="changeone('${obj.id}',this.value,'book');">
 									<option value="">Please select</option>
 									<option value="0">update</option>
 									<option value="1">delete</option>

@@ -1,19 +1,21 @@
 <%@ jet package="translated" class="Dao_java"%>
-<entity var="many" relation="many" />
+<entity var="object" relation="one" />
+<set var="Class" value='object.property("Class")'/>
 package <java:package />;
+
 import java.util.Map;
 import ssh.hibernate.dao.IBaseDao;
 import ssh.hibernate.dao.QuerySqlManager;
 import ssh.hibernate.page.ListPage;
-import com.jmr.dao.I<get value="many.name" case="headUpper" />Dao;
-import com.jmr.entity.<get value="many.name" case="headUpper" />;
+import com.jmr.dao.I<get value="Class"/>Dao;
+import com.jmr.entity.<get value="Class"/>;
 
 /**
  * Dao implementation class
  *
  */
 
-public class <java:class /> implements I<get value="many.name" case="headUpper" />Dao{
+public class <java:class /> implements I<get value="Class"/>Dao{
 	
 	private IBaseDao baseDao;
 
@@ -29,7 +31,7 @@ public class <java:class /> implements I<get value="many.name" case="headUpper" 
 	 * @return
 	 */
 	public ListPage find(int pageNo, int pageCount, Map queryMap) {
-		return QuerySqlManager.query(baseDao, <get value="many.name" case="headUpper" />.class, pageNo, pageCount, queryMap);
+		return QuerySqlManager.query(baseDao, <get value="Class"/>.class, pageNo, pageCount, queryMap);
 	}
 	
 	/**
@@ -37,8 +39,8 @@ public class <java:class /> implements I<get value="many.name" case="headUpper" 
 	 * @param id
 	 * @return
 	 */
-	public <get value="many.name" case="headUpper" /> getById(Integer id) {
-		return (<get value="many.name" case="headUpper" />)baseDao.get(<get value="many.name" case="headUpper" />.class, id);
+	public <get value="Class"/> getById(Integer id) {
+		return (<get value="Class"/>)baseDao.get(<get value="Class"/>.class, id);
 	}
 		
 	/**
@@ -46,12 +48,11 @@ public class <java:class /> implements I<get value="many.name" case="headUpper" 
 	 * @param id
 	 */
 	public void delete(Integer id) {
-		baseDao.delete(<get value="many.name" case="headUpper" />.class, id);
+		baseDao.delete(<get value="Class"/>.class, id);
 	}
 	
 	/**
 	 * Save
-	 * @param <get value="many.name"/>
 	 */
 	public void save(Object object) {
 		baseDao.save(object);
@@ -59,7 +60,6 @@ public class <java:class /> implements I<get value="many.name" case="headUpper" 
 	
 	/**
 	 * Update
-	 * @param <get value="many.name"/>
 	 */
 	public void update(Object object) {
 		baseDao.update(object);

@@ -1,8 +1,6 @@
-
 package com.jmr.service.impl;
 
 import java.util.Map;
-
 import org.springframework.transaction.TransactionStatus;
 import org.springframework.transaction.support.TransactionCallback;
 import org.springframework.transaction.support.TransactionTemplate;
@@ -11,14 +9,14 @@ import com.jmr.dao.IBookDao;
 import com.jmr.service.IBookService;
 
 /**
- * 消息Service实现类
+ * Service implementation class
  *
  */
  public class BookServiceImpl implements IBookService{
  	private IBookDao bookDao;
 	private TransactionTemplate transactionTemplate;
 	
-	//事務
+	//Transaction
 	public void setTransactionTemplate(TransactionTemplate transactionTemplate) {
 		this.transactionTemplate = transactionTemplate;
 	}
@@ -32,7 +30,7 @@ import com.jmr.service.IBookService;
 	}
 		
 	/**
-	 * 分页查询
+	 * Paging query
 	 * @param pageNo
 	 * @param pageCount
 	 * @param queryMap
@@ -43,7 +41,7 @@ import com.jmr.service.IBookService;
 	}
 	
 	/**
-	 * 取得单一对象
+	 * Get object by id
 	 * @param id
 	 * @return
 	 */
@@ -52,7 +50,7 @@ import com.jmr.service.IBookService;
 	}
 	
 	/**
-	 * 删除
+	 * delete
 	 * @param id
 	 */
 	 public void delete(final Integer id) {
@@ -65,7 +63,7 @@ import com.jmr.service.IBookService;
 	}
 		
 	/**
-	 * 保存
+	 * save
 	 * @param news
 	 */
 	 public void save(Object object) {
@@ -73,7 +71,7 @@ import com.jmr.service.IBookService;
 	}
 	
 	/**
-	 * 修改
+	 * update
 	 * @param news
 	 */
 	 public void update(Object object) {

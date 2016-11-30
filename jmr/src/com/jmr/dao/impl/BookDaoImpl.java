@@ -1,4 +1,5 @@
 package com.jmr.dao.impl;
+
 import java.util.Map;
 import ssh.hibernate.dao.IBaseDao;
 import ssh.hibernate.dao.QuerySqlManager;
@@ -7,7 +8,7 @@ import com.jmr.dao.IBookDao;
 import com.jmr.entity.Book;
 
 /**
- * 消息Dao实现类
+ * Dao implementation class
  *
  */
 
@@ -23,7 +24,7 @@ public class BookDaoImpl implements IBookDao{
 	 * 
 	 * @param pageNo 
 	 * @param pageCount
-	 * @param queryMap 查询的Map 
+	 * @param queryMap 
 	 * @return
 	 */
 	public ListPage find(int pageNo, int pageCount, Map queryMap) {
@@ -31,7 +32,7 @@ public class BookDaoImpl implements IBookDao{
 	}
 	
 	/**
-	 * 取得单一对象
+	 * Get Object
 	 * @param id
 	 * @return
 	 */
@@ -40,7 +41,7 @@ public class BookDaoImpl implements IBookDao{
 	}
 		
 	/**
-	 * 删除
+	 * Delete
 	 * @param id
 	 */
 	public void delete(Integer id) {
@@ -48,16 +49,14 @@ public class BookDaoImpl implements IBookDao{
 	}
 	
 	/**
-	 * 保存
-	 * @param book
+	 * Save
 	 */
 	public void save(Object object) {
 		baseDao.save(object);
 	}
 	
 	/**
-	 * 修改
-	 * @param book
+	 * Update
 	 */
 	public void update(Object object) {
 		baseDao.update(object);

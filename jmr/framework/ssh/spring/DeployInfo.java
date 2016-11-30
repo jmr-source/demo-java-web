@@ -45,12 +45,12 @@ public class DeployInfo {
     public void echoDeployInfo() {
 		InetAddress addr;
 		try {
-			log.info("jmr 部署信息：");
+			//log.info("jmr 部署信息：");
 			addr = InetAddress.getLocalHost();
-			log.info("Web应用伺服器主机->" + addr.getHostName() + ":"
-					+ addr.getHostAddress());
-			log.info("档上传位置->" + uploadFilePath);
-			log.info("文件访问地址->" + fileServerHost);
+			//log.info("Web应用伺服器主机->" + addr.getHostName() + ":"
+			//		+ addr.getHostAddress());
+			//log.info("档上传位置->" + uploadFilePath);
+			//log.info("文件访问地址->" + fileServerHost);
 		} catch (UnknownHostException e) {
 			e.printStackTrace();
 		}

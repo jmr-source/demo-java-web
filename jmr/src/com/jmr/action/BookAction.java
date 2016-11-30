@@ -2,35 +2,26 @@ package com.jmr.action;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
 import org.apache.struts.action.ActionServlet;
-
 import ssh.struts1.ActionManager;
 import app.j2ee.util.RequestUtil;
-
 import com.jmr.entity.Book;
 import com.jmr.service.IBookService;
 
 public class BookAction extends AdminVerifyBaseAction{
 	private IBookService service;
 
-	//重写
+
 	public void setServlet(ActionServlet actionServlet){
 		super.setServlet(actionServlet);
-		service = (IBookService) getCtx().getBean("bookService");//最新消息 
+		service = (IBookService) getCtx().getBean("bookService");
 	}
 
 	/**
-	 * 查询
-	 * @param mapping
-	 * @param form
-	 * @param request
-	 * @param response
-	 * @return
-	 * @throws Exception
+	 * Query
 	 */
 	public ActionForward find(ActionMapping mapping, ActionForm form,
 			HttpServletRequest request, HttpServletResponse response) throws Exception {
@@ -39,7 +30,7 @@ public class BookAction extends AdminVerifyBaseAction{
 
 
 	/**
-	 * 跳转到新增
+	 * Jump to new
 	 */	
 	public ActionForward toAdd(ActionMapping mapping, ActionForm form,
 			HttpServletRequest request, HttpServletResponse response) throws Exception {
@@ -47,7 +38,7 @@ public class BookAction extends AdminVerifyBaseAction{
 	}
 
 	/**
-	 * 保存
+	 * Save
 	 */
 	public ActionForward save(ActionMapping mapping, ActionForm form,
 			HttpServletRequest request, HttpServletResponse response) throws Exception {
@@ -59,7 +50,7 @@ public class BookAction extends AdminVerifyBaseAction{
 	}
 
 	/**
-	 * 转向修改
+	 * Jump to update
 	 * @param mapping
 	 * @param form
 	 * @param request
@@ -73,7 +64,7 @@ public class BookAction extends AdminVerifyBaseAction{
 
 
 	/**
-	 * 更新
+	 * Update
 	 * @param mapping
 	 * @param form
 	 * @param request
@@ -91,7 +82,7 @@ public class BookAction extends AdminVerifyBaseAction{
 
 
 	/**
-	 * 删除
+	 * Delete
 	 * @param mapping
 	 * @param form
 	 * @param request

@@ -1,6 +1,5 @@
 <%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
 <html>
 <%@ include file="/common/include/views_head.jsp"%>
 <head>
@@ -59,7 +58,7 @@ function toBack() {
 				<input type="hidden" id="id" name="id" value="${id}" /> <input
 					type="hidden" id="pageNo" name="pageNo" value="${pageNo}" /> <input
 					type="hidden" id="pageSize" name="pageSize" value="${pageSize}" />
-					<table width="634" class="tb2_green" border="0" cellspacing="0"
+				<table width="634" class="tb2_green" border="0" cellspacing="0"
 					cellpadding="0">
 					<tr>
 						<th>name</th>
@@ -84,7 +83,7 @@ function toBack() {
 						<th>registTime</th>
 						<td>
 						    <input id="registTime" name="registTime" 
-						    value=" <fmt:formatDate value="${book.registTime}" pattern="yyyy-MM-dd HH:mm:ss"/>" class="Wdate"
+						    value="<fmt:formatDate value="${book.registTime}" pattern="yyyy-MM-dd HH:mm:ss"/>" class="Wdate"
 						    onfocus="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss',readOnly:true})"/>
 						</td>
 					</tr>

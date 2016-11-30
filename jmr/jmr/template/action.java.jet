@@ -1,5 +1,7 @@
 <%@ jet package="translated" class="Action_java"%>
-<entity var="many" relation="many" />
+<entity var="object" relation="one" />
+<set var="Class" value='object.property("Class")'/>
+<set var="class" value='object.property("class")'/>
 package <java:package />;
 
 import javax.servlet.http.HttpServletRequest;
@@ -10,16 +12,16 @@ import org.apache.struts.action.ActionMapping;
 import org.apache.struts.action.ActionServlet;
 import ssh.struts1.ActionManager;
 import app.j2ee.util.RequestUtil;
-import com.jmr.entity.<get value="many.name" case="headUpper"/>;
-import com.jmr.service.I<get value="many.name" case="headUpper"/>Service;
+import com.jmr.entity.<get value="Class"/>;
+import com.jmr.service.I<get value="Class"/>Service;
 
-public class <get value="many.name" case="headUpper"/>Action extends AdminVerifyBaseAction{
-	private I<get value="many.name" case="headUpper"/>Service service;
+public class <java:class/> extends AdminVerifyBaseAction{
+	private I<get value="Class"/>Service service;
 
 
 	public void setServlet(ActionServlet actionServlet){
 		super.setServlet(actionServlet);
-		service = (I<get value="many.name" case="headUpper"/>Service) getCtx().getBean("<get value="many.name"/>Service");//最新消息 
+		service = (I<get value="Class"/>Service) getCtx().getBean("<get value="class"/>Service");
 	}
 
 	/**
@@ -27,7 +29,7 @@ public class <get value="many.name" case="headUpper"/>Action extends AdminVerify
 	 */
 	public ActionForward find(ActionMapping mapping, ActionForm form,
 			HttpServletRequest request, HttpServletResponse response) throws Exception {
-		return ActionManager.find(mapping, form, request, response, service, <get value="many.name" case="headUpper"/>.class);
+		return ActionManager.find(mapping, form, request, response, service, <get value="Class"/>.class);
 	}
 
 
@@ -36,7 +38,7 @@ public class <get value="many.name" case="headUpper"/>Action extends AdminVerify
 	 */	
 	public ActionForward toAdd(ActionMapping mapping, ActionForm form,
 			HttpServletRequest request, HttpServletResponse response) throws Exception {
-		return ActionManager.toAdd(mapping, form, request, response, <get value="many.name" case="headUpper"/>.class);
+		return ActionManager.toAdd(mapping, form, request, response, <get value="Class"/>.class);
 	}
 
 	/**
@@ -44,10 +46,10 @@ public class <get value="many.name" case="headUpper"/>Action extends AdminVerify
 	 */
 	public ActionForward save(ActionMapping mapping, ActionForm form,
 			HttpServletRequest request, HttpServletResponse response) throws Exception {
-		ActionManager.save(mapping, form, request, response, basePath, service, <get value="many.name" case="headUpper"/>.class);
+		ActionManager.save(mapping, form, request, response, basePath, service, <get value="Class"/>.class);
 		int pageNo = RequestUtil.getIntParameter(request, "pageNo", 1);
 		int pageSize = RequestUtil.getIntParameter(request, "pageSize", 10);
-		response.sendRedirect(basePath + "/<get value="many.name"/>.do?act=find&marking=1&pageNo=" + pageNo + "&pageSize=" + pageSize);
+		response.sendRedirect(basePath + "/<get value="class"/>.do?act=find&marking=1&pageNo=" + pageNo + "&pageSize=" + pageSize);
 		return null;
 	}
 
@@ -75,10 +77,10 @@ public class <get value="many.name" case="headUpper"/>Action extends AdminVerify
 	 */
 	public ActionForward update(ActionMapping mapping,ActionForm form,
 			HttpServletRequest request,HttpServletResponse response) throws Exception{
-	    ActionManager.update(mapping, form, request, response, basePath, service, <get value="many.name" case="headUpper"/>.class);
+	    ActionManager.update(mapping, form, request, response, basePath, service, <get value="Class"/>.class);
 		int pageNo = RequestUtil.getIntParameter(request, "pageNo", 1);
 		int pageSize = RequestUtil.getIntParameter(request, "pageSize", 10);
-		response.sendRedirect(basePath + "/<get value="many.name"/>.do?act=find&marking=1&pageNo=" + pageNo + "&pageSize=" + pageSize);
+		response.sendRedirect(basePath + "/<get value="class"/>.do?act=find&marking=1&pageNo=" + pageNo + "&pageSize=" + pageSize);
 		return null;
 	}
 
@@ -97,7 +99,7 @@ public class <get value="many.name" case="headUpper"/>Action extends AdminVerify
 		ActionManager.del(mapping, form, request, response, basePath, service);
 		int pageNo = RequestUtil.getIntParameter(request, "pageNo", 1);
 		int pageSize = RequestUtil.getIntParameter(request, "pageSize", 10);
-		response.sendRedirect(basePath + "/<get value="many.name"/>.do?act=find&marking=1&pageNo=" + pageNo + "&pageSize=" + pageSize);
+		response.sendRedirect(basePath + "/<get value="class"/>.do?act=find&marking=1&pageNo=" + pageNo + "&pageSize=" + pageSize);
 		return null;
 	}
 

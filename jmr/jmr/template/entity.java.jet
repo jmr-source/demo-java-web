@@ -1,18 +1,17 @@
 <%@ jet package="translated" class="Entity_java"%>
+<entity var="object" relation="one"/>
 <%--package--%>
 package <java:package/>;
 
 <%--imports--%>
-<entity var="many" relation="many"/>
-<for var="field" value="many.fields" duplicate="false">
+<for var="field" value="object.fields" duplicate="false">
 import <get value="field.fullType"/>;
 </for>
 
 <%--class messages--%>
-public class <java:class setScope="session" classNameVar="className" fullyClassNameVar="fullyClassName"/>{
+public class <java:class/>{
   <%--generate fields--%>
-  <for var="field" value="many.fields">
-    <%--whether the field is used--%>
+  <for var="field" value="object.fields">
     private <get value="field.type"/> <get value="field.name"/>;
   </for>
 
@@ -22,17 +21,17 @@ public class <java:class setScope="session" classNameVar="className" fullyClassN
 	}
 
   <%--Parameters construction method--%>
-    public <java:class/>(<for value="many.fields" var="field" delimiter=", ">
+    public <java:class/>(<for value="object.fields" var="field" delimiter=", ">
 		                   <get value="field.type"/> <get value="field.name"/>
 	                     </for>) {
 		super();
-	  <for value="many.fields" var="field">
+	  <for value="object.fields" var="field">
 		this.<get value="field.name"/> = <get value="field.name"/>;
 	  </for>
 	}
 	
-<%--get/set method--%>   
-  <for value="many.fields" var="field">
+  <%--get/set method--%>   
+  <for value="object.fields" var="field">
     <%--get method, header character to uppercase--%>
     public <get value="field.type"/> get<get value="field.name" case="headUpper"/>() {
 		return <get value="field.name"/>;

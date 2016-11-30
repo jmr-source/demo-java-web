@@ -1,5 +1,7 @@
-<%@ jet package="translated" class="Entity_jsp"%>
-<entity var="many" relation="many" />
+<%@ jet package="translated" class="View_jsp"%>
+<entity var="object" relation="one" />
+<set var="menu" value='object.property("menu")'/>
+<set var="class" value='object.property("class")'/>
 <\%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
@@ -11,9 +13,9 @@
     <\%@ include file="/common/include/menu.jsp" %>
     
     <div class="rightContent">
-    <span class="title"><get value='many.property("menuName")' case="headUpper"/></span><!-- End of title -->
+    <span class="title"><get value='menu' case="headUpper"/></span>
     <div class="mainContainer">
-    	<form action="${basePath}<get value='many.name'/>.do?act=find" method="post" name="baseForm" />
+    	<form action="${basePath}<get value='class'/>.do?act=find" method="post" name="baseForm" />
     	<div class="function">
 	    	<div class="btnAddDelete">
 	    		<input name="pageNo" value="${param.pageNo}" type="hidden"/>
@@ -24,17 +26,16 @@
 	    	<img src="${basePath}/common/images/icon_quiz.gif" />&nbsp;&nbsp;Query&nbsp;&nbsp;&nbsp;&nbsp;
 
 	  			<input style="width:60px;" value="Search" type="button" onclick="find();"/>&nbsp;&nbsp;
-	    		<input style="width:50px;" value="New" type="button" onclick="toAdd('<get value='many.name'/>')"/>&nbsp;&nbsp;
+	    		<input style="width:50px;" value="New" type="button" onclick="toAdd('<get value='class'/>')"/>&nbsp;&nbsp;
 	    		<br/><br/>
-	    		<for var="field" value='many.fields' test='field.property("isQuery") == true'>
+	    		<for var="field" value='object.fields' test='field.property("isQuery") == true'>
 	    		<get value='field.name'/>:
 	    		<if test='field.property("controlType") == "text"'>
 				    <input name="<get value='field.name'/>" id="<get value='field.name'/>" 
-				    value="${<get value='field.name'/>}" type="text" style="width:90px"/>&nbsp;&nbsp;&nbsp;&nbsp;
+				    value="${<get value='field.name'/>}" type="text" style="width:90px"/>
 				</if>
 				<elseif test='field.property("controlType") == "select"'>
 				    <select id="<get value='field.name'/>" name="<get value='field.name'/>">
-				    <option value="<get value='data.value'/>"></option>
 					<for var='data' value='field.datas'>
 				    <option value="<get value='data.value'/>"><get value='data.name'/></option>
 				    </for>
@@ -67,7 +68,7 @@
         <table width="630" class="tbl_green" border="0" cellspacing="0" cellpadding="0">
           <tr>
             <th width="50">number</th>       
-            <for var="field" value='many.fields' test='field.property("isEdit") == true'>
+            <for var="field" value='object.fields' test='field.property("isEdit") == true'>
             <th width="50"><get value='field.name'/></th>
             </for>
             <th width="60">operation</th>
@@ -83,29 +84,31 @@
 						<c:set var="i" value="${(listPage.currentPageNo-1)*listPage.currentPageSize +1 }"/>
 					</c:if>
 				  
-				   <c:forEach items="${listPage.dataList}" var="n" varStatus="vs"> 
+				   <c:forEach items="${listPage.dataList}" var="obj" varStatus="vs"> 
 				   		 <tr class=${vs.count%2==1?"#ececec":"" }>
 	                        <td align="center">&nbsp;${(listPage.currentPageNo-1)*listPage.currentPageSize + vs.count} </td>
-						    <for var="field" value='many.fields' test='field.property("isEdit") == true'>
+						    <for var="field" value='object.fields' test='field.property("isEdit") == true'>
 							<if test='field.property("controlType") == "text"'>
-							<td align="center">${n.<get value='field.name'/>}</td>
+							<td align="center">${obj.<get value='field.name'/>}</td>
 							</if>
 							<elseif test='field.property("controlType") == "select"'>
 							<td align="center">
 							<for var='data' value='field.datas'>
-							    <c:if test="${n.<get value='field.name'/> == <get value='data.value'/>}"><get value='data.name'/></c:if>
+							    <c:if test="${obj.<get value='field.name'/> == <get value='data.value'/>}">
+							      <get value='data.name'/>
+							    </c:if>
 						    </for>
 						    </td>
 						    </elseif>
 						    <elseif test='field.property("controlType") == "date"'>
 							<td align="center">
-							<fmt:formatDate value="${n.<get value='field.name'/>}" pattern="yyyy-MM-dd HH:mm:ss"/>
+							<fmt:formatDate value="${obj.<get value='field.name'/>}" pattern="yyyy-MM-dd HH:mm:ss"/>
 							</td>
 							</elseif>
 						    </for>
 							
 							<td align="center">
-								<select name="changeOne" id="changeOne" onchange="changeone('${n.id}',this.value,'<get value='many.name'/>');">
+								<select name="changeOne" id="changeOne" onchange="changeone('${obj.id}',this.value,'<get value='class'/>');">
 									<option value="">Please select</option>
 									<option value="0">update</option>
 									<option value="1">delete</option>

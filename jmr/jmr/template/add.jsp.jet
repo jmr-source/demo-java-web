@@ -1,9 +1,9 @@
-<%@ jet package="translated" class="EntityAdd_jsp"%>
+<%@ jet package="translated" class="Add_jsp"%>
+<entity var="object" relation="one" />
+<set var="menu" value='object.property("menu")'/>
+<set var="class" value='object.property("class")'/>
 <\%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<entity var="many" relation="many" />
-<if test='many.name == "student"'></if>
-
 <html>
 <\%@ include file="/common/include/views_head.jsp"%>
 <head>
@@ -11,7 +11,7 @@
 //Submit verification
 function submit() {
 	var frm = document.forms["baseForm"];
-	<for var="field" value='many.fields' test='field.isPk == false'>
+	<for var="field" value='object.fields' test='field.property("isEdit") == true'>
     var object = $("#<get value='field.name'/>").val().trim();
 	if (object == ""){
 	  alert("<get value='field.name'/> can not be empty!");
@@ -24,7 +24,7 @@ function submit() {
  
 //Clear
 function clearAll() {
-	<for var="field" value='many.fields' test='field.isPk == false'>
+	<for var="field" value='object.fields' test='field.property("isEdit") == true'>
 	  $("#<get value='field.name'/>").val("");
 	</for>
 }
@@ -32,7 +32,7 @@ function clearAll() {
 //Back
 function toBack() {
 	var frm = document.forms["baseForm"];
-	frm.action = "${basePath}<get value='many.name'/>.do?act=find&marking=2";
+	frm.action = "${basePath}<get value='class'/>.do?act=find&marking=2";
 	frm.submit();
 	return false;
 }
@@ -43,18 +43,18 @@ function toBack() {
 		<\%@ include file="/common/include/menu.jsp"%>
 
 		<div class="rightContent">
-			<span class="title"><get value='many.name' case="headUpper"/></span>
+			<span class="title"><get value='menu' case="headUpper"/></span>
 			<!-- End of title -->
 
 			<div class="mainContainer">
-				<form action="${basePath}<get value='many.name'/>.do?act=save" method="post"
+				<form action="${basePath}<get value='class'/>.do?act=save" method="post"
 					name="baseForm" />
 				<input type="hidden" id="pageNo" name="pageNo" value="${pageNo}" />
 				<input type="hidden" id="pageSize" name="pageSize"
 					value="${pageSize}" />
 				<table width="634" class="tb2_green" border="0" cellspacing="0"
 					cellpadding="0">
-					<for var="field" value='many.fields' test='field.property("isEdit") == true'>
+					<for var="field" value='object.fields' test='field.property("isEdit") == true'>
 					<tr>
 						<th><get value='field.name'/></th>
 						<td>

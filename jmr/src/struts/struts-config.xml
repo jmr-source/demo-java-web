@@ -39,13 +39,13 @@
        		<forward name="toFindAction" path="/users.do?act=find"></forward>	
        </action>
        
-       <!-- insert_start id="bean" -->                      
-       <action path="/book"  type="com.jmr.action.BookAction"
+       <!-- insert_start id="action" -->                      
+       <action path="/book" type="com.jmr.action.BookAction"
                   scope="request" parameter="act"> 
             <forward name="toFind" path="/views/book/book.jsp" />
 	        <forward name="toFindAction" path="/views/book.do?act=find" redirect="true" />
 	   		<forward name="toAdd" path="/views/book/bookAdd.jsp" />
-	   		<forward name="toModify" path="/views/book/bookModify.jsp" />           
+	   		<forward name="toModify" path="/views/book/bookUpdate.jsp" />           
        </action>            
        <!-- insert_end -->
        
